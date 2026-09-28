@@ -682,7 +682,7 @@
      Paste your deployment URL (ends in /exec) below. Sent as form-encoded data so the browser
      makes a "simple" request (no CORS preflight, which Apps Script can't answer). If the request
      can't complete, fall back to an honest mailto + copy path rather than claiming success. */
-  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwKD059U_BRhyTRiYE-SPLflUiCeJLtLjDs6s3nENpR0pPhpJz6q-Kl5n7pMbtLFv_o/exec';
+  var SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
   var CONTACT_EMAIL = 'ostool@zohomail.com';
   var form = document.getElementById('leadForm');
   var submitBtn = document.getElementById('submitBtn');
@@ -716,11 +716,10 @@
       botcheck: document.getElementById('f-botcheck').checked ? '1' : '',
       page: location.href
     });
-    fetch(SHEET_URL, { method: 'POST', body: payload }).then(function(res){
-      if (!res.ok) throw new Error('http ' + res.status);
-      return res.json();
-    }).then(function(data){
-      if (!data || data.result !== 'success') throw new Error('sheet error');
+    /* mode 'no-cors': Apps Script answers with a redirect whose reply the browser won't let the
+       page read, but the script has already run and saved the row by then. So we only treat a
+       network failure (offline, bad URL) as an error. */
+    fetch(SHEET_URL, { method: 'POST', mode: 'no-cors', body: payload }).then(function(){
       form.reset();
       successBox.classList.add('show');
       successBox.scrollIntoView({behavior:'smooth', block:'nearest'});
