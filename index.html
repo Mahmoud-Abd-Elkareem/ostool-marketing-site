@@ -163,6 +163,51 @@
   .diff p{font-size:13.5px;color:var(--ink-muted);line-height:1.65}
   .diff code{font-family:var(--font-mono);font-size:12px;background:var(--surface-2);border:1px solid var(--border);padding:1px 6px;border-radius:5px;color:var(--ink)}
 
+  /* ---- old way / Ostool way comparison ---- */
+  .compare{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:36px}
+  @media (max-width:640px){.compare{grid-template-columns:1fr}}
+  .compare-col{padding:20px 22px}
+  .compare-col h4{font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+  .compare-old{background:var(--surface-2)}
+  .compare-old h4{color:var(--ink-faint)}
+  .compare-new{background:var(--surface)}
+  .compare-new h4{color:var(--accent)}
+  .compare-col ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  .compare-col li{font-size:13.5px;line-height:1.5;display:flex;gap:9px;align-items:flex-start}
+  .compare-old li{color:var(--ink-muted)}
+  .compare-new li{color:var(--ink);font-weight:500}
+  .compare-col li i{flex-shrink:0;width:16px;height:16px;margin-top:1px}
+  .compare-old li i{color:var(--ink-faint)}
+  .compare-new li i{color:var(--good)}
+
+  /* ---- garage receiving spotlight ---- */
+  .spotlight{background:linear-gradient(180deg,var(--surface-2),transparent 40%)}
+  .spotlight-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--on-accent);background:var(--accent);padding:5px 12px;border-radius:999px;margin-bottom:16px}
+  .spotlight-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  @media (max-width:900px){.spotlight-grid{grid-template-columns:1fr}}
+  .spotlight h2{font-size:clamp(26px,3.6vw,36px);margin-top:10px}
+  .spotlight-list{display:grid;gap:16px;margin-top:26px}
+  .spotlight-list div{display:flex;gap:12px;align-items:flex-start}
+  .spotlight-list i{width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--good) 15%, transparent);color:var(--good);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .spotlight-list i svg{width:14px;height:14px}
+  .spotlight-list b{display:block;font-size:14.5px}
+  .spotlight-list span{font-size:13px;color:var(--ink-muted)}
+
+  .receiving-mock{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-lift);padding:22px}
+  .rm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .rm-head b{font-family:var(--font-display);font-size:15px}
+  .rm-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+  .rm-field{border:1px solid var(--border);border-radius:9px;padding:10px 12px;background:var(--paper)}
+  .rm-field span{display:block;font-size:10.5px;color:var(--ink-faint);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px}
+  .rm-field b{font-family:var(--font-mono);font-size:14px}
+  .rm-rows{display:grid;gap:10px}
+  .rm-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:10px;border-inline-start:3px solid var(--good)}
+  .rm-row.pending{border-inline-start-color:var(--warn)}
+  .rm-row b{font-family:var(--font-mono);font-size:13px}
+  .rm-row span{display:block;font-size:11.5px;color:var(--ink-faint)}
+  .rm-status{font-family:var(--font-mono);font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--good) 15%, transparent);color:var(--good)}
+  .rm-status.pending{background:color-mix(in srgb,var(--warn) 22%, transparent);color:#8a5a00}
+
   /* ---- feature grid ---- */
   .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   @media (max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
@@ -309,12 +354,62 @@
     </div>
   </section>
 
+  <section class="spotlight" id="receiving">
+    <div class="wrap spotlight-grid">
+      <div class="reveal">
+        <span class="spotlight-badge">Premium feature</span>
+        <div class="eyebrow">Where the paperwork usually breaks down</div>
+        <h2>Garage Receiving turns the gate into a checkpoint, not a guess.</h2>
+        <p class="lede">Every truck and trailer that rolls in is the start of a maintenance record — or the start of a dispute, if nobody wrote it down right. Garage Receiving replaces the gate logbook with a plate-matched, auditable intake that any attendant can run correctly from day one.</p>
+        <div class="spotlight-list">
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>No more mystery trailers</b><span>Every hitch and unhitch is logged the moment it happens, so you always know what's attached to what — and for how long.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>The right vehicle, every time</b><span>Plate-matched intake stops a truck being logged against the wrong record — no merged histories, no disputed maintenance later.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>An audit trail from the first minute</b><span>Driver, odometer, timestamp — captured at the gate, not reconstructed from memory during a dispute.</span></div></div>
+        </div>
+        <div class="hero-ctas" style="margin-top:26px">
+          <a class="btn btn-accent" href="#contact">Ask about Garage Receiving ▸</a>
+        </div>
+      </div>
+      <div class="receiving-mock reveal">
+        <div class="rm-head"><b>Receive a truck or trailer</b><span class="mock-pill">Guided wizard</span></div>
+        <div class="rm-fields">
+          <div class="rm-field"><span>Truck plate</span><b>TRK-1012</b></div>
+          <div class="rm-field"><span>Trailer plate</span><b>TRL-2001</b></div>
+        </div>
+        <div class="rm-rows">
+          <div class="rm-row"><div><b>4546 س ي ص</b><span>Driver: Mahmoud · Completed</span></div><span class="rm-status">Signed off</span></div>
+          <div class="rm-row pending"><div><b>TRK-1012 · TRL-2001</b><span>Driver: Ahmed · Started 12:42 PM</span></div><span class="rm-status pending">In progress</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="difference">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">Under the hood</div>
-        <h2>What a spreadsheet can't do</h2>
-        <p class="lede">Four things that only show up once a fleet actually runs on Ostool for a while.</p>
+        <div class="eyebrow">The competitive edge</div>
+        <h2>Why fleets switch to Ostool — and stay.</h2>
+        <p class="lede">Generic fleet software tracks vehicles. Ostool is built for how a real yard operates.</p>
+      </div>
+      <div class="compare reveal">
+        <div class="compare-col compare-old">
+          <h4>The old way</h4>
+          <ul>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Spreadsheets, WhatsApp groups and a paper gate log that nobody double-checks</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>One login for everyone — and one breach away from every branch's data</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Maintenance tracking that stops the moment a trailer leaves the yard</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Office-only tools that go dark the second the yard's wifi does</li>
+          </ul>
+        </div>
+        <div class="compare-col compare-new">
+          <h4>The Ostool way</h4>
+          <ul>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>One plate-matched system from the gate to the work order — Garage Receiving included</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Two-layer tenant isolation, built in — no security add-on to negotiate or pay for</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Every trailer's mileage tracked automatically, hitch to unhitch</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>An offline-capable mobile app that keeps your crew moving, signal or not</li>
+          </ul>
+        </div>
       </div>
       <div class="diffs reveal-group" id="diffGrid"></div>
     </div>
@@ -472,10 +567,10 @@
     phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>'
   };
   var DIFFS = [
-    {icon:'shield', title:'Two layers of tenant isolation', body:'Every query is scoped by an EF Core filter at the app level — and the same tables carry native SQL Server row-level security reading the connection’s session context underneath. A raw or reporting query against the database still can’t cross tenants.'},
-    {icon:'hitch', title:'Trailers earn mileage they don’t have', body:'A trailer has no odometer. Ostool tracks every hitch/unhitch with its odometer reading, then attributes the towing truck’s distance to the trailer for each day it was attached — so PM and tyre-life schedules stay accurate even for the dumbest trailer on the lot.'},
-    {icon:'bolt', title:'PM status moves the moment a reading lands', body:'Log an odometer or engine-hour reading and every PM schedule tied to that machine recalculates immediately — no nightly batch to wait for. One click turns a due schedule into a work order, already checked for duplicates and routed for approval.'},
-    {icon:'phone', title:'Built for spotty yard wifi', body:'The technician mobile app queues odometer readings, work-order actions and incident reports locally and replays them once back online — each command is idempotent, so a flaky connection can’t double-submit or lose work.', id:'mobile', cta:true}
+    {icon:'shield', title:'Enterprise security, no add-on required', body:'Every tenant’s data is isolated at two independent layers — inside the app and inside the database itself. A multi-branch group or franchise network gets bank-grade separation on one shared platform, at no extra licence cost.'},
+    {icon:'hitch', title:'No trailer left untracked', body:'Most systems stop watching the moment a trailer leaves the yard. Ostool logs every hitch and unhitch and infers its mileage automatically, so maintenance and tyre budgets stay accurate for equipment that has no odometer of its own.'},
+    {icon:'bolt', title:'Breakdowns get caught before they happen', body:'The instant a reading is logged, every maintenance schedule tied to that machine updates — due and overdue work surfaces immediately, and one click turns it into an approved work order. No waiting on an overnight job.'},
+    {icon:'phone', title:'Your crew stays productive, signal or not', body:'The technician mobile app for iOS and Android keeps working with zero connection. Readings, work orders and incident reports queue locally and sync the moment signal returns — no double-entry, no lost work.', id:'mobile', cta:true}
   ];
   var diffGrid = document.getElementById('diffGrid');
   DIFFS.forEach(function(d, i){
