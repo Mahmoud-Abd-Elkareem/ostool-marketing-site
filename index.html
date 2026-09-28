@@ -208,6 +208,29 @@
   .rm-status{font-family:var(--font-mono);font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,var(--good) 15%, transparent);color:var(--good)}
   .rm-status.pending{background:color-mix(in srgb,var(--warn) 22%, transparent);color:#8a5a00}
 
+  /* ---- real-time notifications spotlight (mirrors .receiving-mock's card language) ---- */
+  .spotlight-alt{background:transparent}
+  .spotlight-alt .spotlight-grid{grid-template-columns:.95fr 1.05fr}
+  @media (max-width:900px){.spotlight-alt .spotlight-grid{grid-template-columns:1fr}}
+  .spotlight-alt .spotlight-grid > .receiving-mock,.spotlight-alt .spotlight-grid > .notif-mock{order:-1}
+  @media (max-width:900px){.spotlight-alt .spotlight-grid > .notif-mock{order:0}}
+  .spotlight-badge.badge-live{background:var(--good)}
+
+  .notif-mock{background:var(--surface);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow-lift);padding:22px}
+  .notif-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+  .notif-head b{font-family:var(--font-display);font-size:15px}
+  .notif-badge{font-family:var(--font-mono);font-size:11px;font-weight:700;color:var(--on-accent);background:var(--accent);padding:3px 9px;border-radius:999px}
+  .notif-rows{display:grid;gap:10px}
+  .notif-row{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--border);border-radius:10px;border-inline-start:3px solid var(--bad)}
+  .notif-row.warn{border-inline-start-color:var(--warn)}
+  .notif-row.good{border-inline-start-color:var(--good)}
+  .notif-row-body{flex:1;min-width:0}
+  .notif-row b{display:block;font-size:13px}
+  .notif-row span{display:block;font-size:11.5px;color:var(--ink-faint);margin-top:2px}
+  .notif-chan{display:flex;gap:5px;flex-shrink:0;margin-top:1px}
+  .notif-chan i{width:20px;height:20px;border-radius:5px;background:var(--surface-2);color:var(--ink-faint);display:flex;align-items:center;justify-content:center}
+  .notif-chan i svg{width:11px;height:11px}
+
   /* ---- feature grid ---- */
   .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
   @media (max-width:900px){.features{grid-template-columns:repeat(2,1fr)}}
@@ -379,6 +402,39 @@
         <div class="rm-rows">
           <div class="rm-row"><div><b>4546 س ي ص</b><span>Driver: Mahmoud · Completed</span></div><span class="rm-status">Signed off</span></div>
           <div class="rm-row pending"><div><b>TRK-1012 · TRL-2001</b><span>Driver: Ahmed · Started 12:42 PM</span></div><span class="rm-status pending">In progress</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="spotlight spotlight-alt" id="notifications">
+    <div class="wrap spotlight-grid">
+      <div class="notif-mock reveal">
+        <div class="notif-head"><b>Notifications</b><span class="notif-badge">3 unread</span></div>
+        <div class="notif-rows">
+          <div class="notif-row">
+            <div class="notif-row-body"><b>PM Oil Change Overdue</b><span>Oil Change is overdue for TRK-1012 · 2 min ago</span></div>
+          </div>
+          <div class="notif-row warn">
+            <div class="notif-row-body"><b>PM Brake Pads Due Soon</b><span>Brake Pads is due soon for TRK-1012 · 1 hr ago</span></div>
+          </div>
+          <div class="notif-row good">
+            <div class="notif-row-body"><b>Tyre life / tread alert</b><span>SEED-TRK-1012-SPARE is below minimum tread depth · 3 hr ago</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <span class="spotlight-badge badge-live">Real-time</span>
+        <div class="eyebrow">Nobody should find out from a broken-down truck</div>
+        <h2>Notifications that reach the right person before the problem does.</h2>
+        <p class="lede">Ostool watches preventive maintenance, incidents, tyre life, expiring documents and stock levels continuously — the instant something crosses a threshold, the person responsible hears about it, wherever they are.</p>
+        <div class="spotlight-list">
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>Nine kinds of trouble, watched automatically</b><span>PM due/overdue, high-severity incidents, SLA breaches, tyre life exceeded, expiring or expired documents, low stock, work orders awaiting approval — configurable per organisation, not hardcoded.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>In the app, by email, or on their phone</b><span>Three delivery channels per rule, so a critical incident doesn't wait for someone to open a dashboard — it lands live in-app, by email, or as a push to the mobile app.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>One tap gets you to the fix</b><span>Every notification deep-links straight to the vehicle, work order or part behind it — no digging through menus to find what triggered the alert.</span></div></div>
+        </div>
+        <div class="hero-ctas" style="margin-top:26px">
+          <a class="btn btn-accent" href="#contact">See notification rules in action ▸</a>
         </div>
       </div>
     </div>
