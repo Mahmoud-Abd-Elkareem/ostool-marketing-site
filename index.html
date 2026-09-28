@@ -512,7 +512,7 @@
           <h2>Tell us about your fleet.</h2>
           <p>Share a few details and we'll set up a walkthrough tailored to how your yard actually runs — receiving, PM schedules, tyres, the lot.</p>
           <div class="contact-list">
-            <div><i>✉</i><div><b>Email</b><span>hello@ostool.app</span></div></div>
+            <div><i>✉</i><div><b>Email</b><span>ostool@zohomail.com</span></div></div>
             <div><i>◷</i><div><b>Response time</b><span>Within one business day</span></div></div>
             <div><i>◎</i><div><b>Built for</b><span>Single yards to multi-tenant groups</span></div></div>
             <div><i>▤</i><div><b>Mobile app</b><span>iOS & Android, on request</span></div></div>
@@ -536,6 +536,7 @@
               </div>
             </div>
             <div class="field"><label for="f-message">What should we know?</label><textarea id="f-message" name="message" rows="4" placeholder="e.g. we currently track PM schedules in a spreadsheet across three yards…"></textarea></div>
+            <input type="checkbox" id="f-botcheck" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
             <button class="btn btn-accent" type="submit" id="submitBtn" style="width:100%;justify-content:center">Send inquiry ▸</button>
             <p class="form-foot">Sent straight to our team — usually within one business day.</p>
 
@@ -677,10 +678,11 @@
   });
   navLinks.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); }); });
 
-  /* contact form -> POST to the FleetMaintenance API's public contact endpoint. If the request
-     can't complete (server down, network error, CORS), fall back to an honest mailto + copy
-     path rather than claiming the message was received. */
-  var API_BASE = 'http://localhost:5000';
+  /* contact form -> POST to a Google Apps Script web app that appends a row to a Google Sheet.
+     Paste your deployment URL (ends in /exec) below. Sent as form-encoded data so the browser
+     makes a "simple" request (no CORS preflight, which Apps Script can't answer). If the request
+     can't complete, fall back to an honest mailto + copy path rather than claiming success. */
+  var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwKD059U_BRhyTRiYE-SPLflUiCeJLtLjDs6s3nENpR0pPhpJz6q-Kl5n7pMbtLFv_o/exec';
   var CONTACT_EMAIL = 'hello@ostool.app';
   var form = document.getElementById('leadForm');
   var submitBtn = document.getElementById('submitBtn');
@@ -705,14 +707,20 @@
     var originalLabel = submitBtn.textContent;
     submitBtn.textContent = 'Sending…';
 
-    fetch(API_BASE + '/api/contact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, email: email, company: company || null, fleetSize: size, message: message || null }),
-    }).then(function(res){
+    var payload = new URLSearchParams({
+      name: name,
+      email: email,
+      company: company,
+      fleetSize: size,
+      message: message,
+      botcheck: document.getElementById('f-botcheck').checked ? '1' : '',
+      page: location.href
+    });
+    fetch(SHEET_URL, { method: 'POST', body: payload }).then(function(res){
       if (!res.ok) throw new Error('http ' + res.status);
       return res.json();
-    }).then(function(){
+    }).then(function(data){
+      if (!data || data.result !== 'success') throw new Error('sheet error');
       form.reset();
       successBox.classList.add('show');
       successBox.scrollIntoView({behavior:'smooth', block:'nearest'});
