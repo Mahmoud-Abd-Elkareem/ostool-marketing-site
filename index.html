@@ -512,7 +512,7 @@
           <h2>Tell us about your fleet.</h2>
           <p>Share a few details and we'll set up a walkthrough tailored to how your yard actually runs — receiving, PM schedules, tyres, the lot.</p>
           <div class="contact-list">
-            <div><i>✉</i><div><b>Email</b><span>ostool@zohomail.com</span></div></div>
+            <div><i>✉</i><div><b>Email</b><span>hello@ostool.app</span></div></div>
             <div><i>◷</i><div><b>Response time</b><span>Within one business day</span></div></div>
             <div><i>◎</i><div><b>Built for</b><span>Single yards to multi-tenant groups</span></div></div>
             <div><i>▤</i><div><b>Mobile app</b><span>iOS & Android, on request</span></div></div>
@@ -555,7 +555,7 @@
               </div>
               <div class="copy-row">
                 <span style="font-size:12.5px;color:var(--ink-faint)">Or reach us directly:</span>
-                <code>ostool@zohomail.com</code>
+                <code>hello@ostool.app</code>
                 <button class="copy-btn" type="button" id="copyEmail">Copy address</button>
               </div>
             </div>
@@ -683,7 +683,7 @@
      makes a "simple" request (no CORS preflight, which Apps Script can't answer). If the request
      can't complete, fall back to an honest mailto + copy path rather than claiming success. */
   var SHEET_URL = 'PASTE_YOUR_APPS_SCRIPT_URL_HERE';
-  var CONTACT_EMAIL = 'ostool@zohomail.com';
+  var CONTACT_EMAIL = 'hello@ostool.app';
   var form = document.getElementById('leadForm');
   var submitBtn = document.getElementById('submitBtn');
   var successBox = document.getElementById('successBox');
@@ -775,6 +775,203 @@
   });
 })();
 </script>
+
+<!-- ===== Oz, the Ostool guide: animated feature tour ===== -->
+<style id="oz-css">
+  .oz{position:fixed;right:max(18px,env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:60;display:flex;flex-direction:column;align-items:flex-end;gap:10px;pointer-events:none;font-family:var(--font-body)}
+  .oz > *{pointer-events:auto}
+  .oz-btn{width:112px;height:100px;padding:0;border:0;background:none;cursor:pointer;border-radius:22px;position:relative;animation:oz-in .9s cubic-bezier(.2,.8,.2,1) both}
+  .oz-btn:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+  .oz-btn svg{width:100%;height:100%;overflow:visible;display:block}
+  .oz-body-g{animation:oz-bob 2.6s ease-in-out infinite;transform-origin:60px 90px}
+  .oz-lid{transform-box:fill-box;transform-origin:center;animation:oz-blink 4.2s infinite}
+  .oz-pupil{transition:transform .35s ease}
+  .oz-wheel{transform-box:fill-box;transform-origin:center}
+  .oz-mouth-open{opacity:0}
+  .oz-beacon{transition:fill .2s}
+  .oz-lines{opacity:0}
+  .oz.talking .oz-mouth-open{animation:oz-talk .26s steps(1) infinite}
+  .oz.talking .oz-mouth-closed{animation:oz-talk .26s steps(1) infinite reverse}
+  .oz.talking .oz-beacon{animation:oz-beacon .8s ease-in-out infinite}
+  .oz.driving .oz-wheel{animation:oz-spin .45s linear infinite}
+  .oz.driving .oz-body-g{animation:oz-rumble .18s linear infinite}
+  .oz.driving .oz-lines{opacity:1;animation:oz-lines .35s linear infinite}
+  .oz.driving .oz-pupil{transform:translateX(2px)}
+  .oz-tip{position:absolute;right:98px;bottom:70px;background:var(--accent);color:var(--on-accent);font-size:12.5px;font-weight:700;padding:5px 10px;border-radius:999px;white-space:nowrap;box-shadow:var(--shadow-card);opacity:0;transform:translateY(4px);transition:opacity .2s,transform .2s;pointer-events:none}
+  .oz-btn:hover .oz-tip,.oz-btn:focus-visible .oz-tip{opacity:1;transform:none}
+  .oz-bubble{width:min(340px,calc(100vw - 36px));background:var(--surface);color:var(--ink);border:1px solid var(--border);border-radius:18px 18px 6px 18px;box-shadow:var(--shadow-lift);padding:18px 18px 14px;position:relative;transform-origin:100% 100%;animation:oz-pop .28s cubic-bezier(.2,.9,.3,1.2) both}
+  .oz-bubble[hidden]{display:none}
+  .oz-close{position:absolute;top:8px;right:8px;width:32px;height:32px;border:0;border-radius:8px;background:none;color:var(--ink-faint);font-size:20px;line-height:1;cursor:pointer}
+  .oz-close:hover{background:var(--surface-2);color:var(--ink)}
+  .oz-close:focus-visible,.oz-bubble .btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .oz-title{font-family:var(--font-display);font-weight:700;font-size:16.5px;margin:0 30px 6px 0;line-height:1.3}
+  .oz-text{font-size:14.5px;line-height:1.55;color:var(--ink-muted);min-height:4.6em}
+  .oz-caret{display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:-2px;margin-left:1px;animation:oz-caret .7s steps(1) infinite}
+  .oz-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:14px}
+  .oz-dots{display:flex;gap:6px}
+  .oz-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:background .2s,transform .2s}
+  .oz-dots i.on{background:var(--accent);transform:scale(1.25)}
+  .oz-actions{display:flex;gap:8px}
+  .oz-actions .btn{padding:9px 14px;font-size:13.5px}
+  .oz-spot{outline:3px solid var(--accent)!important;outline-offset:8px;border-radius:16px;transition:outline-color .3s}
+  @keyframes oz-in{from{transform:translateX(160px)}to{transform:none}}
+  @keyframes oz-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+  @keyframes oz-rumble{0%{transform:translateY(0) rotate(0)}50%{transform:translateY(-1.5px) rotate(-.6deg)}100%{transform:translateY(0) rotate(0)}}
+  @keyframes oz-blink{0%,93%,100%{transform:scaleY(0)}95.5%{transform:scaleY(1)}}
+  @keyframes oz-talk{0%{opacity:1}50%{opacity:0}}
+  @keyframes oz-beacon{0%,100%{fill:#FF5A1F}50%{fill:#FAB219}}
+  @keyframes oz-spin{to{transform:rotate(360deg)}}
+  @keyframes oz-lines{from{transform:translateX(0)}to{transform:translateX(-10px)}}
+  @keyframes oz-pop{from{opacity:0;transform:scale(.85) translateY(8px)}to{opacity:1;transform:none}}
+  @keyframes oz-caret{50%{opacity:0}}
+  @media (max-width:560px){.oz-btn{width:88px;height:79px}.oz-tip{display:none}}
+  @media (prefers-reduced-motion:reduce){.oz *,.oz{animation:none!important}.oz-mouth-open{opacity:0!important}.oz-mouth-closed{opacity:1!important}}
+</style>
+
+<div class="oz" id="oz" aria-live="polite">
+  <div class="oz-bubble" id="ozBubble" role="dialog" aria-labelledby="ozTitle" hidden>
+    <button class="oz-close" id="ozClose" type="button" aria-label="Close the tour">×</button>
+    <p class="oz-title" id="ozTitle"></p>
+    <p class="oz-text" id="ozText"></p>
+    <div class="oz-foot">
+      <div class="oz-dots" id="ozDots" aria-hidden="true"></div>
+      <div class="oz-actions" id="ozActions"></div>
+    </div>
+  </div>
+  <button class="oz-btn" id="ozBtn" type="button" aria-label="Oz, the Ostool guide. Start the feature tour" aria-controls="ozBubble" aria-expanded="false">
+    <span class="oz-tip">Take the tour</span>
+    <svg viewBox="0 0 124 110" aria-hidden="true">
+      <ellipse cx="62" cy="103" rx="46" ry="4.5" fill="#111827" opacity=".16"/>
+      <g class="oz-lines" stroke="#FF5A1F" stroke-width="3" stroke-linecap="round"><path d="M2 58h12M6 70h10M0 82h9"/></g>
+      <g class="oz-body-g">
+        <!-- cargo box -->
+        <rect x="14" y="20" width="70" height="62" rx="12" fill="#1F2937" stroke="#4B5563" stroke-width="1.5"/>
+        <rect x="14" y="68" width="70" height="6" fill="#FF5A1F"/>
+        <!-- cab -->
+        <path d="M86 40h14c5 0 8 2 10 6l7 13c1 2 1.5 3.5 1.5 6V76c0 3.3-2.7 6-6 6H86z" fill="#1F2937" stroke="#4B5563" stroke-width="1.5"/>
+        <path d="M92 46h8c2.5 0 4 1 5 3l5 10H92z" fill="#C7D2E0"/>
+        <rect x="112" y="70" width="6" height="4" rx="2" fill="#FAB219"/>
+        <!-- beacon -->
+        <rect x="93" y="35" width="10" height="6" rx="3" fill="#FF5A1F" class="oz-beacon"/>
+        <!-- face -->
+        <g class="oz-eye"><ellipse cx="38" cy="44" rx="9" ry="10" fill="#fff"/><circle class="oz-pupil" cx="40" cy="45" r="4.4" fill="#111827"/><circle cx="41.5" cy="43" r="1.4" fill="#fff"/><rect class="oz-lid" x="28" y="33" width="20" height="21" rx="9" fill="#1F2937"/></g>
+        <g class="oz-eye"><ellipse cx="62" cy="44" rx="9" ry="10" fill="#fff"/><circle class="oz-pupil" cx="64" cy="45" r="4.4" fill="#111827"/><circle cx="65.5" cy="43" r="1.4" fill="#fff"/><rect class="oz-lid" x="52" y="33" width="20" height="21" rx="9" fill="#1F2937"/></g>
+        <path class="oz-mouth-closed" d="M42 58q8 6 16 0" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse class="oz-mouth-open" cx="50" cy="59.5" rx="6.5" ry="4.5" fill="#fff"/>
+        <circle cx="29" cy="56" r="3.2" fill="#FF5A1F" opacity=".55"/><circle cx="71" cy="56" r="3.2" fill="#FF5A1F" opacity=".55"/>
+      </g>
+      <!-- wheels, drawn like the logo's o's -->
+      <g class="oz-wheel"><circle cx="34" cy="86" r="12" fill="#111827" stroke="#fff" stroke-width="5"/><circle cx="34" cy="86" r="3" fill="#fff"/><path d="M34 76v5" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round"/></g>
+      <g class="oz-wheel"><circle cx="100" cy="86" r="12" fill="#111827" stroke="#fff" stroke-width="5"/><circle cx="100" cy="86" r="3" fill="#fff"/><path d="M100 76v5" stroke="#FF5A1F" stroke-width="2.5" stroke-linecap="round"/></g>
+    </svg>
+  </button>
+</div>
+
+<script>
+(function(){
+  var STEPS = [
+    {sel:'#heroMock', title:'Hi, I\u2019m Oz \uD83D\uDC4B', text:'I keep an eye on the yard. This is your fleet dashboard: which trucks are active, in maintenance or grounded, what PM is due or overdue, and which work orders are waiting.'},
+    {sel:'#featureGrid', title:'Everything in one portal', text:'Garage receiving, preventive maintenance, tyres, incidents, inventory and user access, all behind one sign-in. No more spreadsheets and WhatsApp groups.'},
+    {sel:'#receiving .receiving-mock', title:'The gate becomes a checkpoint', text:'Every truck and trailer is logged at the gate by plate number, with the driver, odometer and time recorded from the first minute. No paper logbook, no disputes later.'},
+    {sel:'#notifications .notif-mock', title:'Problems flagged early', text:'Overdue service, worn tyres, expiring documents and low stock show up as alerts right away, so you fix things before a truck breaks down on the road.'},
+    {sel:'#difference .compare', title:'Built for how a real yard works', text:'Trailer mileage is tracked automatically from hitch to unhitch, each company\u2019s data stays isolated, and the mobile app keeps working without signal.'},
+    {sel:'#leadForm', title:'Want to see it with your fleet?', text:'Leave your details here and we\u2019ll walk you through Ostool live, with your own trucks and workflows.', last:true}
+  ];
+  var KEY = 'ozTour.v1';
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var oz = document.getElementById('oz'), btn = document.getElementById('ozBtn'), bubble = document.getElementById('ozBubble');
+  var titleEl = document.getElementById('ozTitle'), textEl = document.getElementById('ozText');
+  var dotsEl = document.getElementById('ozDots'), actionsEl = document.getElementById('ozActions');
+  var step = -1, typer = null, spot = null, driveT = null, fullText = '';
+
+  function store(v){ try{ if(v===undefined) return localStorage.getItem(KEY); localStorage.setItem(KEY,v); }catch(e){ return null; } }
+
+  STEPS.forEach(function(){ dotsEl.appendChild(document.createElement('i')); });
+
+  function makeBtn(label, cls, fn){ var b=document.createElement('button'); b.type='button'; b.className='btn '+cls; b.textContent=label; b.addEventListener('click',fn); return b; }
+  function actions(list){ actionsEl.innerHTML=''; list.forEach(function(b){ actionsEl.appendChild(b); }); }
+
+  function type(text){
+    clearInterval(typer); fullText = text;
+    if(reduce){ textEl.textContent = text; oz.classList.remove('talking'); return; }
+    var i = 0; oz.classList.add('talking'); textEl.textContent = '';
+    var caret = '<span class="oz-caret"></span>';
+    typer = setInterval(function(){
+      i += 2;
+      textEl.innerHTML = escapeHtml(text.slice(0,i)) + caret;
+      if(i >= text.length){ finishType(); }
+    }, 22);
+  }
+  function finishType(){ clearInterval(typer); typer=null; textEl.textContent = fullText; oz.classList.remove('talking'); }
+  function escapeHtml(s){ return s.replace(/[&<>]/g,function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;'}[c]; }); }
+
+  function drive(){
+    if(reduce) return;
+    oz.classList.add('driving'); clearTimeout(driveT);
+    driveT = setTimeout(function(){ oz.classList.remove('driving'); }, 900);
+  }
+
+  function open(){ bubble.hidden = false; btn.setAttribute('aria-expanded','true'); }
+  function close(){
+    finishType(); bubble.hidden = true; btn.setAttribute('aria-expanded','false');
+    if(spot){ spot.classList.remove('oz-spot'); spot = null; }
+    step = -1; store('seen'); btn.focus({preventScroll:true});
+  }
+
+  function greet(){
+    step = -1; open();
+    titleEl.textContent = 'Hi, I\u2019m Oz \uD83D\uDC4B';
+    Array.prototype.forEach.call(dotsEl.children,function(d){ d.classList.remove('on'); });
+    type('Ostool\u2019s yard truck. Want a 30-second tour of what Ostool does for your fleet?');
+    actions([ makeBtn('Not now','btn-ghost',close), makeBtn('Show me','btn-accent',function(){ go(0); }) ]);
+  }
+
+  function go(n){
+    step = n; var s = STEPS[n]; open(); drive();
+    Array.prototype.forEach.call(dotsEl.children,function(d,i){ d.classList.toggle('on', i===n); });
+    titleEl.textContent = s.title; type(s.text);
+    var el = document.querySelector(s.sel);
+    if(spot){ spot.classList.remove('oz-spot'); }
+    if(el){
+      var head = document.querySelector('header'); var off = (head ? head.offsetHeight : 0) + 24;
+      window.scrollTo({ top: el.getBoundingClientRect().top + window.pageYOffset - off, behavior: reduce ? 'auto' : 'smooth' });
+      el.classList.add('oz-spot'); spot = el;
+    }
+    var list = [];
+    if(n > 0) list.push(makeBtn('Back','btn-ghost',function(){ go(n-1); }));
+    if(s.last){
+      list.push(makeBtn('Fill in the form','btn-accent',function(){ close(); var f=document.getElementById('f-name'); if(f) f.focus(); }));
+    } else {
+      list.push(makeBtn('Next','btn-accent',function(){ go(n+1); }));
+    }
+    actions(list);
+    var primary = actionsEl.lastChild; if(primary) primary.focus({preventScroll:true});
+  }
+
+  btn.addEventListener('click', function(){ bubble.hidden ? greet() : close(); });
+  textEl.addEventListener('click', function(){ if(typer) finishType(); });
+  document.getElementById('ozClose').addEventListener('click', close);
+  document.addEventListener('keydown', function(e){
+    if(bubble.hidden) return;
+    if(e.key === 'Escape') close();
+    else if(step >= 0 && e.key === 'ArrowRight' && !STEPS[step].last) go(step+1);
+    else if(step > 0 && e.key === 'ArrowLeft') go(step-1);
+  });
+
+  // Oz's eyes follow the pointer a little
+  var pupils = oz.querySelectorAll('.oz-pupil');
+  window.addEventListener('pointermove', function(e){
+    if(reduce || oz.classList.contains('driving')) return;
+    var r = btn.getBoundingClientRect(), cx = r.left + r.width*.4, cy = r.top + r.height*.4;
+    var dx = Math.max(-2.5, Math.min(2.5, (e.clientX-cx)/120)), dy = Math.max(-2, Math.min(2, (e.clientY-cy)/120));
+    pupils.forEach(function(p){ p.style.transform = 'translate('+dx+'px,'+dy+'px)'; });
+  }, {passive:true});
+
+  // First visit: say hello after a few seconds
+  if(!store()){ setTimeout(function(){ if(bubble.hidden) greet(); }, 3500); }
+})();
+</script>
+<!-- ===== end Oz ===== -->
 
 </body>
 </html>
