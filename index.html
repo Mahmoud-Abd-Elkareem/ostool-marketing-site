@@ -188,6 +188,7 @@
   .spotlight h2{font-size:clamp(26px,3.6vw,36px);margin-top:10px}
   .spotlight-list{display:grid;gap:16px;margin-top:26px}
   .spotlight-list div{display:flex;gap:12px;align-items:flex-start}
+  .spotlight-list div div{display:block;min-width:0}
   .spotlight-list i{width:26px;height:26px;border-radius:7px;background:color-mix(in srgb,var(--good) 15%, transparent);color:var(--good);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
   .spotlight-list i svg{width:14px;height:14px}
   .spotlight-list b{display:block;font-size:14.5px}
@@ -219,19 +220,22 @@
   html[dir="rtl"] .lane{transform:scaleX(-1)}
 
   /* ---- mobile app showcase ---- */
-  .phones{display:grid;grid-template-columns:repeat(4,minmax(0,250px));gap:26px;justify-content:center;align-items:start;margin-top:48px}
-  .phone{margin:0;text-align:center}
-  .phone-frame{background:var(--navy);border-radius:36px;padding:8px;box-shadow:var(--shadow-lift);border:1px solid var(--navy-3)}
-  .phone-frame img{display:block;width:100%;height:auto;aspect-ratio:738/1499;border-radius:28px;background:var(--navy)}
-  .phone:nth-child(even){margin-top:28px}
-  .phone figcaption{margin-top:16px}
+  .phones-wrap{position:relative;margin-top:44px}
+  .phones{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:24px 10px 30px;-webkit-overflow-scrolling:touch;outline:none}
+  .phones::-webkit-scrollbar{display:none}
+  .phone{margin:0;text-align:center;flex:0 0 clamp(200px,22vw,250px);scroll-snap-align:center}
+  .phone img.shot{display:block;width:100%;height:auto;aspect-ratio:786/1668;filter:drop-shadow(0 10px 14px #11182722)}
+  .phone-frame{background:var(--navy);border-radius:34px;padding:7px;box-shadow:var(--shadow-lift);aspect-ratio:786/1668;border:1px solid var(--navy-3)}
+  .phone-frame img{display:block;width:100%;height:100%;object-fit:cover;border-radius:27px;background:var(--navy)}
+  .phone figcaption{margin-top:14px}
   .phone figcaption b{display:block;font-family:var(--font-display);font-size:15px}
   .phone figcaption span{display:block;font-size:13px;color:var(--ink-muted);margin-top:2px}
-  @media (max-width:820px){
-    .phones{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(240px,72vw);justify-content:start;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;gap:20px}
-    .phone{scroll-snap-align:center}
-    .phone:nth-child(even){margin-top:0}
-  }
+  .ph-nav{position:absolute;top:38%;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--ink);font-size:26px;line-height:1;cursor:pointer;box-shadow:var(--shadow-card);display:flex;align-items:center;justify-content:center;padding:0 0 3px}
+  .ph-nav:hover{background:var(--surface-2)}
+  .ph-nav:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .ph-prev{inset-inline-start:-14px}.ph-next{inset-inline-end:-14px}
+  html[dir="rtl"] .ph-nav{transform:scaleX(-1)}
+  @media (max-width:640px){.ph-nav{display:none}.phone{flex-basis:min(220px,66vw)}}
 
   /* ---- real-time notifications spotlight (mirrors .receiving-mock's card language) ---- */
   .spotlight-alt{background:transparent}
@@ -318,6 +322,42 @@
   .foot-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
   .foot-row .brand{font-size:20px}
   footer .fine{font-size:12px;color:var(--ink-faint);font-family:var(--font-mono)}
+
+  /* ---- small-screen hardening: no sideways scroll, grid children may shrink ---- */
+  body{overflow-x:clip}
+  img,svg,video{max-width:100%}
+  .hero-grid>*,.spotlight-grid>*,.contact-split>*,.compare>*,.mock-body>*,.field-row>*,.demo-caption>*{min-width:0}
+  .lede,.eyebrow,h1,h2,h3,h4{overflow-wrap:anywhere}
+  .confirm pre{overflow-wrap:anywhere}
+  @media (max-width:760px){
+    .navbar{gap:10px}
+    .nav-actions{gap:8px}
+    .nav-actions .btn-accent{padding:9px 14px;font-size:13px}
+    .lang-btn{padding:9px 12px;font-size:13px}
+    .nav-toggle{padding:8px 11px}
+    .announce .wrap{font-size:12.5px}
+    .hero .lede{font-size:16.5px}
+    .demo-caption{flex-direction:column;align-items:flex-start;gap:12px}
+  }
+  @media (max-width:520px){
+    .wrap{padding-inline:16px}
+    .navbar .brand{font-size:22px}
+    .mock{padding:16px}
+    .mock-body{gap:14px}
+    .donut,.donut-wrap{width:96px;height:96px}
+    .mock-legend{font-size:12.5px}
+    .mock-foot{gap:6px}
+    .rm-row,.notif-row{padding:10px 11px}
+    .stat-band{padding:26px 20px}
+    .contact-intro,.contact-form{padding:26px 20px}
+    .btn{padding:12px 18px}
+    .hero-ctas{flex-direction:column;align-items:stretch}
+    .hero-ctas .btn{justify-content:center}
+  }
+  @media (max-width:400px){
+    .nav-actions .btn-accent{display:none}
+    .eyebrow{letter-spacing:.1em;font-size:11px}
+  }
 </style>
 </head>
 <body>
@@ -473,23 +513,51 @@
         <h2>The yard floor, in your pocket.</h2>
         <p class="lede">Check fleet health, look up any vehicle by plate, receive trucks and trailers at the gate, and get alerted when a PM is due or a tyre needs replacing — straight from your phone.</p>
       </div>
-      <div class="phones reveal-group">
+      <div class="phones-wrap reveal">
+        <button class="ph-nav ph-prev" type="button" aria-label="Previous screens">&#8249;</button>
+        <div class="phones" id="phoneTrack" tabindex="0" role="region" aria-label="Mobile app screens">
         <figure class="phone" style="--i:0">
-          <div class="phone-frame"><img src="assets/mobile-dashboard.png" alt="Ostool mobile dashboard showing machines by status and the PM schedule" loading="lazy"></div>
-          <figcaption><b>Live fleet dashboard</b><span>Machines by status and PM schedules needing attention.</span></figcaption>
+          <img class="shot" src="assets/app-home.png" width="786" height="1668" alt="Ostool mobile home screen with fleet readiness and quick actions" loading="lazy">
+          <figcaption><b>Home</b><span>Fleet readiness at a glance, plus the four jobs done most.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:1">
-          <div class="phone-frame"><img src="assets/mobile-fleet.png" alt="Ostool mobile vehicles list with plate search and status filter" loading="lazy"></div>
-          <figcaption><b>Every vehicle, one search</b><span>Find trucks, trailers and assets by plate, with status and odometer.</span></figcaption>
+          <img class="shot" src="assets/app-work-orders.png" width="786" height="1668" alt="Ostool mobile work orders list with status filters" loading="lazy">
+          <figcaption><b>Work orders</b><span>Priority, status and owner on every card.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:2">
-          <div class="phone-frame"><img src="assets/mobile-receiving.png" alt="Ostool mobile Garage Receiving list with a Receive Truck/Trailer button" loading="lazy"></div>
-          <figcaption><b>Garage Receiving</b><span>Log every truck and trailer in and out at the gate.</span></figcaption>
+          <img class="shot" src="assets/app-work-order.png" width="786" height="1668" alt="Ostool mobile work order detail with checklist and parts" loading="lazy">
+          <figcaption><b>Work order detail</b><span>Checklist, parts and a labour timer, with one button to finish.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:3">
+          <img class="shot" src="assets/app-receiving.png" width="786" height="1668" alt="Ostool mobile garage receiving wizard, step two" loading="lazy">
+          <figcaption><b>Receive vehicle</b><span>A four-step wizard that saves every step, even offline.</span></figcaption>
+        </figure>
+        <figure class="phone" style="--i:4">
+          <img class="shot" src="assets/app-vehicle.png" width="786" height="1668" alt="Ostool mobile vehicle screen with axle map and tread depth" loading="lazy">
+          <figcaption><b>Vehicle and tyres</b><span>Tap a tyre on the axle map to measure or move it.</span></figcaption>
+        </figure>
+        <figure class="phone" style="--i:5">
+          <img class="shot" src="assets/app-incident.png" width="786" height="1668" alt="Ostool mobile incident report form" loading="lazy">
+          <figcaption><b>Report incident</b><span>Chips and segments instead of dropdowns, done in under a minute.</span></figcaption>
+        </figure>
+        <figure class="phone" style="--i:6">
+          <img class="shot" src="assets/app-stock.png" width="786" height="1668" alt="Ostool mobile inventory list with low stock first" loading="lazy">
+          <figcaption><b>Stock</b><span>Shortfalls first, scan to find, bars show distance to minimum.</span></figcaption>
+        </figure>
+        <figure class="phone" style="--i:7">
+          <img class="shot" src="assets/app-reports.png" width="786" height="1668" alt="Ostool mobile reports with downtime chart" loading="lazy">
+          <figcaption><b>Reports</b><span>Downtime, repair time and top causes at a glance.</span></figcaption>
+        </figure>
+        <figure class="phone" style="--i:8">
+          <img class="shot" src="assets/app-arabic.png" width="786" height="1668" alt="Ostool mobile home screen mirrored in Arabic" loading="lazy">
+          <figcaption><b>Arabic, fully mirrored</b><span>Right-to-left layout; IDs and plates stay readable.</span></figcaption>
+        </figure>
+        <figure class="phone" style="--i:9">
           <div class="phone-frame"><img src="assets/mobile-notification.png" alt="Ostool push notification on a phone lock screen: Tyre life/tread alert" loading="lazy"></div>
           <figcaption><b>Alerts that find you</b><span>Push notifications when a PM is coming due or a tyre needs replacing.</span></figcaption>
         </figure>
+        </div>
+        <button class="ph-nav ph-next" type="button" aria-label="Next screens">&#8250;</button>
       </div>
     </div>
   </section>
@@ -827,6 +895,14 @@
   document.getElementById('copyEmail').addEventListener('click', function(){
     copyText(CONTACT_EMAIL, this);
   });
+
+  /* mobile screens carousel */
+  (function(){
+    var track=document.getElementById('phoneTrack'); if(!track) return;
+    function step(dir){ var rtl=document.documentElement.dir==='rtl'; track.scrollBy({left:(rtl?-dir:dir)*track.clientWidth*.8,behavior:'smooth'}); }
+    document.querySelector('.ph-prev').addEventListener('click',function(){ step(-1); });
+    document.querySelector('.ph-next').addEventListener('click',function(){ step(1); });
+  })();
 })();
 </script>
 
@@ -936,6 +1012,36 @@
     'Open in email app ▸':'افتح في تطبيق البريد ◂','Copy details':'نسخ التفاصيل',
     'Or reach us directly:':'أو تواصل معنا مباشرةً:','Copy address':'نسخ العنوان',
     'Fleet maintenance operations — Dashboard · Machines · Maintenance · Garage Receiving · Incidents · Inventory · People & Access · Reports · Notifications · Tyres':'عمليات صيانة الأسطول — لوحة التحكم · الآلات · الصيانة · استقبال الورشة · الحوادث · المخزون · الأشخاص والصلاحيات · التقارير · الإشعارات · الإطارات',
+    'Home':'الرئيسية',
+    'Fleet readiness at a glance, plus the four jobs done most.':'جاهزية الأسطول بنظرة واحدة، مع أكثر أربع مهام تنفيذاً.',
+    'Work orders':'أوامر العمل',
+    'Priority, status and owner on every card.':'الأولوية والحالة والمسؤول على كل بطاقة.',
+    'Work order detail':'تفاصيل أمر العمل',
+    'Checklist, parts and a labour timer, with one button to finish.':'قائمة مهام وقطع ومؤقت عمل، وزر واحد للإنهاء.',
+    'Receive vehicle':'استقبال مركبة',
+    'A four-step wizard that saves every step, even offline.':'معالج من أربع خطوات يحفظ كل خطوة، حتى دون اتصال.',
+    'Vehicle and tyres':'المركبة والإطارات',
+    'Tap a tyre on the axle map to measure or move it.':'المس إطاراً على خريطة المحاور لقياسه أو نقله.',
+    'Report incident':'الإبلاغ عن حادث',
+    'Chips and segments instead of dropdowns, done in under a minute.':'أزرار اختيار بدل القوائم المنسدلة، وتنتهي في أقل من دقيقة.',
+    'Stock':'المخزون',
+    'Shortfalls first, scan to find, bars show distance to minimum.':'النواقص أولاً، وامسح الباركود للبحث، والأشرطة تُظهر القرب من الحد الأدنى.',
+    'Reports':'التقارير',
+    'Downtime, repair time and top causes at a glance.':'التوقف ووقت الإصلاح وأهم الأسباب بنظرة واحدة.',
+    'Arabic, fully mirrored':'العربية بتخطيط معكوس كامل',
+    'Right-to-left layout; IDs and plates stay readable.':'تخطيط من اليمين إلى اليسار، مع بقاء الأرقام واللوحات مقروءة.',
+    'Previous screens':'الشاشات السابقة',
+    'Next screens':'الشاشات التالية',
+    'Mobile app screens':'شاشات تطبيق الجوال',
+    '@alt:Ostool mobile home screen with fleet readiness and quick actions':'لقطة من تطبيق أوستول: Home',
+    '@alt:Ostool mobile work orders list with status filters':'لقطة من تطبيق أوستول: Work orders',
+    '@alt:Ostool mobile work order detail with checklist and parts':'لقطة من تطبيق أوستول: Work order detail',
+    '@alt:Ostool mobile garage receiving wizard, step two':'لقطة من تطبيق أوستول: Receive vehicle',
+    '@alt:Ostool mobile vehicle screen with axle map and tread depth':'لقطة من تطبيق أوستول: Vehicle and tyres',
+    '@alt:Ostool mobile incident report form':'لقطة من تطبيق أوستول: Report incident',
+    '@alt:Ostool mobile inventory list with low stock first':'لقطة من تطبيق أوستول: Stock',
+    '@alt:Ostool mobile reports with downtime chart':'لقطة من تطبيق أوستول: Reports',
+    '@alt:Ostool mobile home screen mirrored in Arabic':'لقطة من تطبيق أوستول: Arabic, fully mirrored',
     /* generated cards */
     'Fleet dashboard':'لوحة الأسطول',
     'Machine status, PM due/overdue, open incidents and outstanding work orders — one live overview.':'حالة الآلات، واستحقاق الصيانة الوقائية وتأخرها، والحوادث المفتوحة وأوامر العمل المعلقة — في نظرة مباشرة واحدة.',
