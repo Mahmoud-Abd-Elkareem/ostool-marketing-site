@@ -2,7 +2,7 @@
 
 Public product site for Ostool — a single static page (`index.html`, no build step)
 introducing the fleet-maintenance platform, embedding a recorded tour of the
-Operations portal (`journey.webm` / `poster.png`), and a contact form that posts
+Operations portal (`journey-en.webm` / `poster.png`), and a contact form that posts
 to the FleetMaintenance backend's public contact endpoint.
 
 ## Running locally

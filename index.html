@@ -4,7 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ostool</title>
-<meta name="description" content="Fleet maintenance operations, unified: receiving, preventive maintenance, tyres, incidents and inventory in one bilingual platform.">
+<meta name="description" content="Stop chasing trucks. Ostool shows what is running, what is due and what is about to break — one platform for your whole fleet, in Arabic and English.">
+<script>(function(){var d=document.documentElement,l='ar';try{if(localStorage.getItem('ostoolLang')==='en')l='en'}catch(e){}if(l==='ar'){d.lang='ar';d.dir='rtl';d.className+=' i18n-pending';setTimeout(function(){d.className=d.className.replace(' i18n-pending','')},2500)}})()</script>
+<style>html.i18n-pending body{visibility:hidden}</style>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Cairo:wght@400;600;700;800&display=swap');
 
@@ -215,6 +217,8 @@
   .lang-btn:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
   html[lang="ar"]{--font-display:'Cairo','Helvetica Neue',Arial,sans-serif;--font-body:'Cairo','Helvetica Neue',Arial,sans-serif}
   html[lang="ar"] *{letter-spacing:0!important;text-transform:none!important}
+  html[lang="ar"] .eyebrow,html[lang="ar"] .spotlight-badge,html[lang="ar"] .mock-pill,html[lang="ar"] .rm-status,html[lang="ar"] .notif-badge,html[lang="ar"] .demo-caption span{font-family:var(--font-body)}
+  html[lang="ar"] .eyebrow{font-size:13.5px;font-weight:700}
   html[dir="rtl"] .oz{direction:ltr}
   html[dir="rtl"] .oz-bubble{direction:rtl;text-align:right}
   html[dir="rtl"] .lane{transform:scaleX(-1)}
@@ -383,8 +387,8 @@
 <div class="announce">
   <div class="wrap">
     <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></i>
-    <span><b>New:</b> the Ostool mobile app for iOS and Android — offline-first, built for the yard floor.</span>
-    <a href="#mobile">See what it does ▸</a>
+    <span><b>New:</b> Ostool now fits in your pocket — and works with no signal.</span>
+    <a href="#mobile">See it in action ▸</a>
   </div>
 </div>
 
@@ -392,13 +396,13 @@
   <section class="hero" id="home">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow">Fleet maintenance, run from one screen</div>
-        <h1>Every truck, tyre and work order — one operations portal.</h1>
-        <p class="lede">Ostool replaces the spreadsheet-and-sticky-notes version of fleet upkeep with a single system: receive a vehicle at the gate, track its preventive maintenance, log incidents, and keep parts stocked — in English or Arabic, for one tenant or many.</p>
+        <div class="eyebrow">Fleet maintenance, minus the chaos</div>
+        <h1>Stop chasing trucks. Start running your fleet.</h1>
+        <p class="lede">One screen shows what is running, what is due, and what is about to break — before it costs you a day.</p>
         <div class="lane" aria-hidden="true"></div>
         <div class="hero-ctas">
           <a class="btn btn-accent" href="#contact">Get a demo</a>
-          <a class="btn btn-ghost" href="#demo">Watch the 2-minute tour ▸</a>
+          <a class="btn btn-ghost" href="#demo">Watch it in 2 minutes ▸</a>
         </div>
       </div>
       <div class="mock reveal" id="heroMock">
@@ -435,9 +439,9 @@
   <section id="product">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">The operations portal</div>
-        <h2>Ten workflows. One tenant code to sign in.</h2>
-        <p class="lede">Everything a fleet team touches in a day, in one place — built from the same screens your team already knows.</p>
+        <div class="eyebrow">Everything in one place</div>
+        <h2>Ten jobs. One login. Zero spreadsheets.</h2>
+        <p class="lede">Everything your team does in a day, on one platform.</p>
       </div>
       <div class="features reveal-group" id="featureGrid"></div>
     </div>
@@ -447,16 +451,16 @@
     <div class="wrap spotlight-grid">
       <div class="reveal">
         <span class="spotlight-badge">Premium feature</span>
-        <div class="eyebrow">Where the paperwork usually breaks down</div>
-        <h2>Garage Receiving turns the gate into a checkpoint, not a guess.</h2>
-        <p class="lede">Every truck and trailer that rolls in is the start of a maintenance record — or the start of a dispute, if nobody wrote it down right. Garage Receiving replaces the gate logbook with a plate-matched, auditable intake that any attendant can run correctly from day one.</p>
+        <div class="eyebrow">The gate is where problems begin</div>
+        <h2>Know exactly what rolled in — and who brought it.</h2>
+        <p class="lede">Every truck and trailer becomes a record the moment it arrives. No logbook. No arguments later.</p>
         <div class="spotlight-list">
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>No more mystery trailers</b><span>Every hitch and unhitch is logged the moment it happens, so you always know what's attached to what — and for how long.</span></div></div>
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>The right vehicle, every time</b><span>Plate-matched intake stops a truck being logged against the wrong record — no merged histories, no disputed maintenance later.</span></div></div>
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>An audit trail from the first minute</b><span>Driver, odometer, timestamp — captured at the gate, not reconstructed from memory during a dispute.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>No mystery trailers</b><span>Every hitch and unhitch is logged the moment it happens.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>The right vehicle, every time</b><span>Plate matching keeps records off the wrong truck.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>Proof from minute one</b><span>Driver, odometer and time — captured right at the gate.</span></div></div>
         </div>
         <div class="hero-ctas" style="margin-top:26px">
-          <a class="btn btn-accent" href="#contact">Ask about Garage Receiving ▸</a>
+          <a class="btn btn-accent" href="#contact">See Garage Receiving ▸</a>
         </div>
       </div>
       <div class="receiving-mock reveal">
@@ -491,16 +495,16 @@
       </div>
       <div class="reveal">
         <span class="spotlight-badge badge-live">Real-time</span>
-        <div class="eyebrow">Nobody should find out from a broken-down truck</div>
-        <h2>Notifications that reach the right person before the problem does.</h2>
-        <p class="lede">Ostool watches preventive maintenance, incidents, tyre life, expiring documents and stock levels continuously — the instant something crosses a threshold, the person responsible hears about it, wherever they are.</p>
+        <div class="eyebrow">Hear it before it breaks</div>
+        <h2>The alert arrives. The breakdown does not.</h2>
+        <p class="lede">Overdue service, worn tyres, expiring papers, low stock — the right person is told instantly.</p>
         <div class="spotlight-list">
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>Nine kinds of trouble, watched automatically</b><span>PM due/overdue, high-severity incidents, SLA breaches, tyre life exceeded, expiring or expired documents, low stock, work orders awaiting approval — configurable per organisation, not hardcoded.</span></div></div>
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>In the app, by email, or on their phone</b><span>Three delivery channels per rule, so a critical incident doesn't wait for someone to open a dashboard — it lands live in-app, by email, or as a push to the mobile app.</span></div></div>
-          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>One tap gets you to the fix</b><span>Every notification deep-links straight to the vehicle, work order or part behind it — no digging through menus to find what triggered the alert.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>Nine kinds of trouble, watched for you</b><span>Service, incidents, tyres, documents, stock and more — set up your way.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>On the app, by email, or by phone</b><span>A critical alert never waits for someone to open a dashboard.</span></div></div>
+          <div><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i><div><b>One tap to the fix</b><span>Every alert opens the exact vehicle, order or part.</span></div></div>
         </div>
         <div class="hero-ctas" style="margin-top:26px">
-          <a class="btn btn-accent" href="#contact">See notification rules in action ▸</a>
+          <a class="btn btn-accent" href="#contact">See alerts in action ▸</a>
         </div>
       </div>
     </div>
@@ -511,54 +515,54 @@
       <div class="section-head reveal">
         <div class="eyebrow">The mobile app</div>
         <h2>The yard floor, in your pocket.</h2>
-        <p class="lede">Check fleet health, look up any vehicle by plate, receive trucks and trailers at the gate, and get alerted when a PM is due or a tyre needs replacing — straight from your phone.</p>
+        <p class="lede">Receive trucks, report issues, check the fleet — from your phone.</p>
       </div>
       <div class="phones-wrap reveal">
         <button class="ph-nav ph-prev" type="button" aria-label="Previous screens">&#8249;</button>
         <div class="phones" id="phoneTrack" tabindex="0" role="region" aria-label="Mobile app screens">
         <figure class="phone" style="--i:0">
           <img class="shot" src="assets/app-home.png" width="786" height="1668" alt="Ostool mobile home screen with fleet readiness and quick actions" loading="lazy">
-          <figcaption><b>Home</b><span>Fleet readiness at a glance, plus the four jobs done most.</span></figcaption>
+          <figcaption><b>Home</b><span>Fleet readiness, one glance.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:1">
           <img class="shot" src="assets/app-work-orders.png" width="786" height="1668" alt="Ostool mobile work orders list with status filters" loading="lazy">
-          <figcaption><b>Work orders</b><span>Priority, status and owner on every card.</span></figcaption>
+          <figcaption><b>Work orders</b><span>Who's on what, and how urgent.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:2">
           <img class="shot" src="assets/app-work-order.png" width="786" height="1668" alt="Ostool mobile work order detail with checklist and parts" loading="lazy">
-          <figcaption><b>Work order detail</b><span>Checklist, parts and a labour timer, with one button to finish.</span></figcaption>
+          <figcaption><b>Work order detail</b><span>Checklist, parts, timer — one tap to finish.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:3">
           <img class="shot" src="assets/app-receiving.png" width="786" height="1668" alt="Ostool mobile garage receiving wizard, step two" loading="lazy">
-          <figcaption><b>Receive vehicle</b><span>A four-step wizard that saves every step, even offline.</span></figcaption>
+          <figcaption><b>Receive vehicle</b><span>Four steps. Saved even offline.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:4">
           <img class="shot" src="assets/app-vehicle.png" width="786" height="1668" alt="Ostool mobile vehicle screen with axle map and tread depth" loading="lazy">
-          <figcaption><b>Vehicle and tyres</b><span>Tap a tyre on the axle map to measure or move it.</span></figcaption>
+          <figcaption><b>Vehicle and tyres</b><span>Tap any tyre to measure or move it.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:4.5">
           <div class="phone-frame"><img src="assets/app-drivers.png" alt="Ostool mobile driver management with search and driver card" loading="lazy"></div>
-          <figcaption><b>Driver management</b><span>Search drivers, see licence and contact details, call with one tap.</span></figcaption>
+          <figcaption><b>Driver management</b><span>Find a driver. Call in one tap.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:5">
           <img class="shot" src="assets/app-incident.png" width="786" height="1668" alt="Ostool mobile incident report form" loading="lazy">
-          <figcaption><b>Report incident</b><span>Chips and segments instead of dropdowns, done in under a minute.</span></figcaption>
+          <figcaption><b>Report incident</b><span>Report an incident in under a minute.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:6">
           <img class="shot" src="assets/app-stock.png" width="786" height="1668" alt="Ostool mobile inventory list with low stock first" loading="lazy">
-          <figcaption><b>Stock</b><span>Shortfalls first, scan to find, bars show distance to minimum.</span></figcaption>
+          <figcaption><b>Stock</b><span>Shortages first. Scan to find.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:7">
           <img class="shot" src="assets/app-reports.png" width="786" height="1668" alt="Ostool mobile reports with downtime chart" loading="lazy">
-          <figcaption><b>Reports</b><span>Downtime, repair time and top causes at a glance.</span></figcaption>
+          <figcaption><b>Reports</b><span>Downtime and its causes, at a glance.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:8">
           <img class="shot" src="assets/app-arabic.png" width="786" height="1668" alt="Ostool mobile home screen mirrored in Arabic" loading="lazy">
-          <figcaption><b>Arabic, fully mirrored</b><span>Right-to-left layout; IDs and plates stay readable.</span></figcaption>
+          <figcaption><b>Built for Arabic</b><span>True right-to-left, not an afterthought.</span></figcaption>
         </figure>
         <figure class="phone" style="--i:9">
           <div class="phone-frame"><img src="assets/mobile-notification.png" alt="Ostool push notification on a phone lock screen: Tyre life/tread alert" loading="lazy"></div>
-          <figcaption><b>Alerts that find you</b><span>Push notifications when a PM is coming due or a tyre needs replacing.</span></figcaption>
+          <figcaption><b>Alerts that find you</b><span>A heads-up before service is due or a tyre wears out.</span></figcaption>
         </figure>
         </div>
         <button class="ph-nav ph-next" type="button" aria-label="Next screens">&#8250;</button>
@@ -569,27 +573,27 @@
   <section id="difference">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">The competitive edge</div>
-        <h2>Why fleets switch to Ostool — and stay.</h2>
-        <p class="lede">Generic fleet software tracks vehicles. Ostool is built for how a real yard operates.</p>
+        <div class="eyebrow">Why Ostool</div>
+        <h2>Fleets that switch, stay.</h2>
+        <p class="lede">Built around how a real yard works, not how software imagines it.</p>
       </div>
       <div class="compare reveal">
         <div class="compare-col compare-old">
           <h4>The old way</h4>
           <ul>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Spreadsheets, WhatsApp groups and a paper gate log that nobody double-checks</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>One login for everyone — and one breach away from every branch's data</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Maintenance tracking that stops the moment a trailer leaves the yard</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Office-only tools that go dark the second the yard's wifi does</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Spreadsheets, WhatsApp groups, a paper gate log</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>One shared login for everyone</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Tracking stops when a trailer leaves the yard</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Tools that go dark when the wifi does</li>
           </ul>
         </div>
         <div class="compare-col compare-new">
           <h4>The Ostool way</h4>
           <ul>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>One plate-matched system from the gate to the work order — Garage Receiving included</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Two-layer tenant isolation, built in — no security add-on to negotiate or pay for</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Every trailer's mileage tracked automatically, hitch to unhitch</li>
-            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>An offline-capable mobile app that keeps your crew moving, signal or not</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>One system, from the gate to the work order</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Each company's data sealed in two layers</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Trailer mileage tracked automatically</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>A mobile app that works with no signal</li>
           </ul>
         </div>
       </div>
@@ -600,18 +604,16 @@
   <section id="demo">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">See it move</div>
-        <h2>A walk through the Operations portal</h2>
-        <p class="lede">Sign-in to sign-out: the dashboard, a vehicle's full maintenance record, the garage-receiving wizard, and every section in between.</p>
+        <div class="eyebrow">Seeing is believing</div>
+        <h2>Two minutes. The whole platform.</h2>
+        <p class="lede">From sign-in to sign-out, recorded live.</p>
       </div>
       <div class="demo-frame reveal">
-        <video controls preload="metadata" poster="poster.png" playsinline>
-          <source src="journey.webm" type="video/webm">
-        </video>
+        <video id="tourVideo" controls preload="metadata" poster="poster.png" playsinline src="journey-en.webm"></video>
       </div>
       <div class="demo-caption reveal">
-        <span>2:06 · recorded from the live Operations portal</span>
-        <a class="btn btn-ghost" href="#contact">Ask for a live walkthrough ▸</a>
+        <span>1:49 · recorded from the live platform</span>
+        <a class="btn btn-ghost" href="#contact">Want a live walkthrough? ▸</a>
       </div>
     </div>
   </section>
@@ -619,9 +621,9 @@
   <section id="impact">
     <div class="wrap">
       <div class="stat-band reveal-group" id="statBand">
-        <div class="stat" style="--i:0"><b data-count="3">0</b><span>focused portals — operations, platform admin, storekeeper</span></div>
-        <div class="stat" style="--i:1"><b data-count="10">0</b><span>workflow sections behind one sign-in</span></div>
-        <div class="stat" style="--i:2"><b data-count="2">0</b><span>languages, English and Arabic, fully right-to-left</span></div>
+        <div class="stat" style="--i:0"><b data-count="3">0</b><span>portals, one built for each role</span></div>
+        <div class="stat" style="--i:1"><b data-count="10">0</b><span>workflows behind one login</span></div>
+        <div class="stat" style="--i:2"><b data-count="2">0</b><span>languages — Arabic and English, fully right-to-left</span></div>
       </div>
     </div>
   </section>
@@ -629,14 +631,14 @@
   <section id="contact">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="eyebrow">Talk to us</div>
-        <h2>Bring your fleet's paperwork into one screen.</h2>
+        <div class="eyebrow">Let's talk</div>
+        <h2>Ready to see your fleet this clearly?</h2>
       </div>
       <div class="contact-split reveal">
         <div class="contact-intro on-dark">
           <span class="brand-mark" id="introMark"></span>
           <h2>Tell us about your fleet.</h2>
-          <p>Share a few details and we'll set up a walkthrough tailored to how your yard actually runs — receiving, PM schedules, tyres, the lot.</p>
+          <p>Two minutes of details. A demo built around your yard.</p>
           <div class="contact-list">
             <div><i><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></i><div><b>Email</b><span>hello@ostool.app</span></div></div>
             <div><i><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><div><b>Response time</b><span>Within one business day</span></div></div>
@@ -663,12 +665,12 @@
             </div>
             <div class="field"><label for="f-message">What should we know?</label><textarea id="f-message" name="message" rows="4" placeholder="e.g. we currently track PM schedules in a spreadsheet across three yards…"></textarea></div>
             <input type="checkbox" id="f-botcheck" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
-            <button class="btn btn-accent" type="submit" id="submitBtn" style="width:100%;justify-content:center">Send inquiry ▸</button>
-            <p class="form-foot">Sent straight to our team — usually within one business day.</p>
+            <button class="btn btn-accent" type="submit" id="submitBtn" style="width:100%;justify-content:center">Book my demo ▸</button>
+            <p class="form-foot">We reply within one business day.</p>
 
             <div class="confirm" id="successBox">
               <h4>Got it, thank you</h4>
-              <p style="font-size:13.5px;color:var(--ink-muted)">Your details are logged and someone from the team will follow up within one business day.</p>
+              <p style="font-size:13.5px;color:var(--ink-muted)">Done. Someone from the team will reach out within one business day.</p>
             </div>
 
             <div class="confirm" id="fallbackBox">
@@ -724,14 +726,14 @@
   };
 
   var FEATURES = [
-    {icon:'dashboard', title:'Fleet dashboard', body:'Machine status, PM due/overdue, open incidents and outstanding work orders — one live overview.'},
-    {icon:'receiving', title:'Garage receiving', body:'A guided wizard logs every truck and trailer in and out, plate-matched, from gate to sign-off.'},
-    {icon:'maintenance', title:'Preventive maintenance', body:'Schedules per machine, oil/brake/tyre intervals tracked automatically into work orders.'},
-    {icon:'tyres', title:'Tyre lifecycle', body:'Register, install, move axle to axle, track tread depth in millimetres, retire — per tyre, per machine.'},
-    {icon:'incidents', title:'Incidents', body:'Severity-ranked incident log, from low to critical, tied back to the machine and its history.'},
-    {icon:'inventory', title:'Inventory', body:'Parts, reorder thresholds and stock movements, so a low-stock brake pad doesn’t ground a truck.'},
-    {icon:'people', title:'People & access', body:'Role-based permissions per tenant — who can approve a work order, who can only view.'},
-    {icon:'tenant', title:'Multi-tenant by design', body:'One tenant code per organisation; a platform admin portal oversees every tenant from above.'}
+    {"icon":"dashboard","title":"Fleet dashboard","body":"See the whole fleet at a glance — running, due, or down."},
+    {"icon":"receiving","title":"Garage receiving","body":"Every truck logged at the gate, plate-matched, signed off."},
+    {"icon":"maintenance","title":"Preventive maintenance","body":"Service reminders that turn into work orders by themselves."},
+    {"icon":"tyres","title":"Tyre lifecycle","body":"Know every tyre's tread, position and remaining life."},
+    {"icon":"incidents","title":"Incidents","body":"Report in under a minute, ranked by severity."},
+    {"icon":"inventory","title":"Inventory","body":"Never ground a truck over a missing brake pad."},
+    {"icon":"people","title":"People & access","body":"Everyone sees and does only what their role allows."},
+    {"icon":"tenant","title":"Built for many branches","body":"One platform for every branch, each with its own private data."}
   ];
 
   var grid = document.getElementById('featureGrid');
@@ -750,10 +752,10 @@
     phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>'
   };
   var DIFFS = [
-    {icon:'shield', title:'Enterprise security, no add-on required', body:'Every tenant’s data is isolated at two independent layers — inside the app and inside the database itself. A multi-branch group or franchise network gets bank-grade separation on one shared platform, at no extra licence cost.'},
-    {icon:'hitch', title:'No trailer left untracked', body:'Most systems stop watching the moment a trailer leaves the yard. Ostool logs every hitch and unhitch and infers its mileage automatically, so maintenance and tyre budgets stay accurate for equipment that has no odometer of its own.'},
-    {icon:'bolt', title:'Breakdowns get caught before they happen', body:'The instant a reading is logged, every maintenance schedule tied to that machine updates — due and overdue work surfaces immediately, and one click turns it into an approved work order. No waiting on an overnight job.'},
-    {icon:'phone', title:'Your crew stays productive, signal or not', body:'The Ostool mobile app for iOS and Android keeps working with zero connection. Readings, work orders and incident reports queue locally and sync the moment signal returns — no double-entry, no lost work.', cta:true}
+    {"icon":"shield","title":"Bank-grade privacy, included","body":"Every company's data is isolated in two independent layers — at no extra cost."},
+    {"icon":"hitch","title":"No trailer left untracked","body":"Hitches are logged, so mileage and tyre costs stay accurate — even without an odometer."},
+    {"icon":"bolt","title":"Catch breakdowns before they happen","body":"Log a reading and every schedule updates instantly. One click makes it a work order."},
+    {"icon":"phone","title":"Your crew keeps working, signal or not","body":"Works offline on iOS and Android — everything syncs the moment signal returns.","cta":true}
   ];
   var diffGrid = document.getElementById('diffGrid');
   DIFFS.forEach(function(d, i){
@@ -917,192 +919,214 @@
   /* English is the source text in the page. Arabic is looked up by the exact English string,
      so any text node or attribute with a matching entry is swapped when the language changes. */
   var AR = {
-    'Menu':'القائمة','Product':'المنتج','Mobile':'الجوال','Demo':'العرض','Contact':'تواصل معنا',
-    'Watch the tour':'شاهد الجولة','Get a demo':'احجز عرضاً تجريبياً',
-    'New:':'جديد:',
-    'the Ostool mobile app for iOS and Android — offline-first, built for the yard floor.':'تطبيق أوستول للجوال على iOS وأندرويد — يعمل دون إنترنت، ومصمَّم لأرض الساحة.',
-    'See what it does ▸':'اكتشف ما يقدمه ◂',
-    'Fleet maintenance, run from one screen':'صيانة الأسطول من شاشة واحدة',
-    'Every truck, tyre and work order — one operations portal.':'كل شاحنة وإطار وأمر عمل — في بوابة تشغيل واحدة.',
-    'Ostool replaces the spreadsheet-and-sticky-notes version of fleet upkeep with a single system: receive a vehicle at the gate, track its preventive maintenance, log incidents, and keep parts stocked — in English or Arabic, for one tenant or many.':'يستبدل أوستول جداول البيانات والملاحظات اللاصقة في صيانة الأسطول بنظام واحد: استقبل المركبة عند البوابة، وتابع صيانتها الوقائية، وسجّل الحوادث، وحافظ على مخزون القطع — بالعربية أو الإنجليزية، لمستأجر واحد أو لعدة مستأجرين.',
-    'Watch the 2-minute tour ▸':'شاهد الجولة في دقيقتين ◂',
-    'Fleet status':'حالة الأسطول','Machines by current state':'الآلات حسب حالتها الحالية','● live':'● مباشر',
-    'machines':'آلة','Active':'نشطة','In maintenance':'في الصيانة','Grounded':'متوقفة',
-    'PM due soon':'صيانة وقائية قريبة','PM overdue':'صيانة وقائية متأخرة','WOs pending':'أوامر عمل معلقة',
-    'The operations portal':'بوابة التشغيل',
-    'Ten workflows. One tenant code to sign in.':'عشرة مسارات عمل. ورمز مستأجر واحد لتسجيل الدخول.',
-    'Everything a fleet team touches in a day, in one place — built from the same screens your team already knows.':'كل ما يحتاجه فريق الأسطول خلال يومه، في مكان واحد — مبني على الشاشات نفسها التي يعرفها فريقك.',
-    'Premium feature':'ميزة مميزة',
-    'Where the paperwork usually breaks down':'حيث تنهار الأوراق عادةً',
-    'Garage Receiving turns the gate into a checkpoint, not a guess.':'استقبال الورشة يحوّل البوابة إلى نقطة تفتيش، لا إلى تخمين.',
-    'Every truck and trailer that rolls in is the start of a maintenance record — or the start of a dispute, if nobody wrote it down right. Garage Receiving replaces the gate logbook with a plate-matched, auditable intake that any attendant can run correctly from day one.':'كل شاحنة ومقطورة تدخل هي بداية سجل صيانة — أو بداية نزاع، إن لم يدوّن أحد ما حدث بدقة. يستبدل استقبال الورشة دفتر البوابة بعملية استلام موثّقة ومطابقة للوحة، يستطيع أي موظف تنفيذها بشكل صحيح من اليوم الأول.',
-    'No more mystery trailers':'لا مزيد من المقطورات المجهولة',
-    'Every hitch and unhitch is logged the moment it happens, so you always know what\'s attached to what — and for how long.':'يُسجَّل كل ربط وفك لحظة حدوثه، فتعرف دائماً ما المربوط بماذا — ولكم من الوقت.',
-    'The right vehicle, every time':'المركبة الصحيحة في كل مرة',
-    'Plate-matched intake stops a truck being logged against the wrong record — no merged histories, no disputed maintenance later.':'يمنع الاستلام المطابق للوحة تسجيل شاحنة على سجل خاطئ — فلا سجلات مدمجة ولا نزاعات صيانة لاحقاً.',
-    'An audit trail from the first minute':'سجل تدقيق منذ الدقيقة الأولى',
-    'Driver, odometer, timestamp — captured at the gate, not reconstructed from memory during a dispute.':'السائق وعدّاد المسافة والوقت — تُسجَّل عند البوابة، لا تُستعاد من الذاكرة أثناء نزاع.',
-    'Ask about Garage Receiving ▸':'اسأل عن استقبال الورشة ◂',
-    'Receive a truck or trailer':'استقبال شاحنة أو مقطورة','Guided wizard':'معالج إرشادي',
-    'Truck plate':'لوحة الشاحنة','Trailer plate':'لوحة المقطورة',
-    'Driver: Mahmoud · Completed':'السائق: محمود · مكتمل','Signed off':'تم الاعتماد',
-    'Driver: Ahmed · Started 12:42 PM':'السائق: أحمد · بدأ 12:42 م','In progress':'قيد التنفيذ',
-    'Notifications':'الإشعارات','3 unread':'3 غير مقروءة',
-    'PM Oil Change Overdue':'تأخر تغيير الزيت (صيانة وقائية)',
-    'Oil Change is overdue for TRK-1012 · 2 min ago':'تغيير الزيت متأخر للشاحنة TRK-1012 · منذ دقيقتين',
-    'PM Brake Pads Due Soon':'اقتراب موعد تغيير تيل الفرامل',
-    'Brake Pads is due soon for TRK-1012 · 1 hr ago':'تيل الفرامل يحين موعده قريباً للشاحنة TRK-1012 · منذ ساعة',
-    'Tyre life / tread alert':'تنبيه عمر الإطار / عمق النقوش',
-    'SEED-TRK-1012-SPARE is below minimum tread depth · 3 hr ago':'SEED-TRK-1012-SPARE أقل من الحد الأدنى لعمق النقوش · منذ 3 ساعات',
-    'Real-time':'لحظي',
-    'Nobody should find out from a broken-down truck':'لا ينبغي أن يعرف أحد من شاحنة معطّلة',
-    'Notifications that reach the right person before the problem does.':'إشعارات تصل إلى الشخص المناسب قبل أن تصل المشكلة.',
-    'Ostool watches preventive maintenance, incidents, tyre life, expiring documents and stock levels continuously — the instant something crosses a threshold, the person responsible hears about it, wherever they are.':'يراقب أوستول الصيانة الوقائية والحوادث وعمر الإطارات والوثائق المنتهية ومستويات المخزون باستمرار — وفور تجاوز أي حدّ، يعلم المسؤول بالأمر أينما كان.',
-    'Nine kinds of trouble, watched automatically':'تسعة أنواع من المشكلات تُراقَب تلقائياً',
-    'PM due/overdue, high-severity incidents, SLA breaches, tyre life exceeded, expiring or expired documents, low stock, work orders awaiting approval — configurable per organisation, not hardcoded.':'استحقاق الصيانة الوقائية وتأخرها، الحوادث عالية الخطورة، خرق اتفاقيات مستوى الخدمة، تجاوز عمر الإطارات، الوثائق المنتهية أو الموشكة على الانتهاء، نقص المخزون، أوامر العمل بانتظار الموافقة — قابلة للضبط لكل مؤسسة، وليست ثابتة في الكود.',
-    'In the app, by email, or on their phone':'داخل التطبيق، أو بالبريد، أو على هاتفهم',
-    'Three delivery channels per rule, so a critical incident doesn\'t wait for someone to open a dashboard — it lands live in-app, by email, or as a push to the mobile app.':'ثلاث قنوات تسليم لكل قاعدة، فلا ينتظر الحادث الحرج أحداً ليفتح لوحة التحكم — بل يصل فوراً داخل التطبيق، أو بالبريد الإلكتروني، أو كإشعار على تطبيق الجوال.',
-    'One tap gets you to the fix':'لمسة واحدة تصل بك إلى الحل',
-    'Every notification deep-links straight to the vehicle, work order or part behind it — no digging through menus to find what triggered the alert.':'يفتح كل إشعار مباشرةً المركبة أو أمر العمل أو القطعة المرتبطة به — دون البحث في القوائم لمعرفة سبب التنبيه.',
-    'See notification rules in action ▸':'شاهد قواعد الإشعارات أثناء العمل ◂',
-    'The mobile app':'تطبيق الجوال','The yard floor, in your pocket.':'أرض الساحة في جيبك.',
-    'Check fleet health, look up any vehicle by plate, receive trucks and trailers at the gate, and get alerted when a PM is due or a tyre needs replacing — straight from your phone.':'تابع حالة الأسطول، وابحث عن أي مركبة برقم اللوحة، واستقبل الشاحنات والمقطورات عند البوابة، وتلقَّ تنبيهاً عند استحقاق صيانة وقائية أو حاجة إطار إلى الاستبدال — مباشرةً من هاتفك.',
-    'Live fleet dashboard':'لوحة الأسطول المباشرة',
-    'Machines by status and PM schedules needing attention.':'الآلات حسب الحالة وجداول الصيانة الوقائية التي تحتاج انتباهاً.',
-    'Every vehicle, one search':'كل مركبة، ببحث واحد',
-    'Find trucks, trailers and assets by plate, with status and odometer.':'اعثر على الشاحنات والمقطورات والأصول برقم اللوحة، مع الحالة وقراءة العدّاد.',
-    'Garage Receiving':'استقبال الورشة',
-    'Driver management':'إدارة السائقين',
-    'Search drivers, see licence and contact details, call with one tap.':'ابحث عن السائقين، واطّلع على الرخصة وبيانات الاتصال، واتصل بنقرة واحدة.',
-    '@alt:Ostool mobile driver management with search and driver card':'لقطة من تطبيق أوستول: إدارة السائقين',
-    'Alerts that find you':'تنبيهات تصلك أينما كنت',
-    'Push notifications when a PM is coming due or a tyre needs replacing.':'إشعارات فورية عند اقتراب موعد صيانة وقائية أو حاجة إطار إلى الاستبدال.',
-    '@alt:Ostool push notification on a phone lock screen: Tyre life/tread alert':'إشعار من أوستول على شاشة القفل: تنبيه عمر الإطار / عمق النقوش',
-    'Log every truck and trailer in and out at the gate.':'سجّل دخول وخروج كل شاحنة ومقطورة عند البوابة.',
-    'The competitive edge':'ميزتنا التنافسية',
-    'Why fleets switch to Ostool — and stay.':'لماذا تنتقل الأساطيل إلى أوستول — وتبقى فيه.',
-    'Generic fleet software tracks vehicles. Ostool is built for how a real yard operates.':'البرامج العامة للأساطيل تتتبع المركبات. أما أوستول فمبني على طريقة عمل الساحة الحقيقية.',
-    'The old way':'الطريقة القديمة',
-    'Spreadsheets, WhatsApp groups and a paper gate log that nobody double-checks':'جداول بيانات ومجموعات واتساب ودفتر بوابة ورقي لا يراجعه أحد',
-    'One login for everyone — and one breach away from every branch\'s data':'حساب دخول واحد للجميع — وعلى بُعد اختراق واحد من بيانات كل فرع',
-    'Maintenance tracking that stops the moment a trailer leaves the yard':'تتبّع صيانة يتوقف لحظة تغادر المقطورة الساحة',
-    'Office-only tools that go dark the second the yard\'s wifi does':'أدوات مكتبية تتعطل لحظة ينقطع واي فاي الساحة',
-    'The Ostool way':'طريقة أوستول',
-    'One plate-matched system from the gate to the work order — Garage Receiving included':'نظام واحد مطابق للوحات من البوابة إلى أمر العمل — يشمل استقبال الورشة',
-    'Two-layer tenant isolation, built in — no security add-on to negotiate or pay for':'عزل المستأجرين على طبقتين مدمج أصلاً — دون إضافة أمنية للتفاوض عليها أو دفع ثمنها',
-    'Every trailer\'s mileage tracked automatically, hitch to unhitch':'مسافة كل مقطورة تُتتبَّع تلقائياً، من الربط إلى الفك',
-    'An offline-capable mobile app that keeps your crew moving, signal or not':'تطبيق جوال يعمل دون اتصال ويُبقي طاقمك في حركة، بوجود الإشارة أو بدونها',
-    'See it move':'شاهده أثناء العمل',
-    'A walk through the Operations portal':'جولة في بوابة التشغيل',
-    'Sign-in to sign-out: the dashboard, a vehicle\'s full maintenance record, the garage-receiving wizard, and every section in between.':'من تسجيل الدخول إلى الخروج: لوحة التحكم، وسجل الصيانة الكامل للمركبة، ومعالج استقبال الورشة، وكل قسم بينها.',
-    '2:06 · recorded from the live Operations portal':'2:06 · مسجّل من بوابة التشغيل الفعلية',
-    'Ask for a live walkthrough ▸':'اطلب جولة مباشرة ◂',
-    'focused portals — operations, platform admin, storekeeper':'بوابات متخصصة — التشغيل، وإدارة المنصة، وأمين المخزن',
-    'workflow sections behind one sign-in':'قسم عمل خلف تسجيل دخول واحد',
-    'languages, English and Arabic, fully right-to-left':'لغتان، العربية والإنجليزية، مع دعم كامل للكتابة من اليمين إلى اليسار',
-    'Talk to us':'تحدث إلينا',
-    'Bring your fleet\'s paperwork into one screen.':'اجمع أوراق أسطولك في شاشة واحدة.',
-    'Tell us about your fleet.':'حدثنا عن أسطولك.',
-    'Share a few details and we\'ll set up a walkthrough tailored to how your yard actually runs — receiving, PM schedules, tyres, the lot.':'شاركنا بعض التفاصيل وسنجهّز جولة تناسب طريقة عمل ساحتك فعلاً — الاستقبال وجداول الصيانة الوقائية والإطارات وكل شيء.',
-    'Email':'البريد الإلكتروني','Response time':'وقت الاستجابة','Within one business day':'خلال يوم عمل واحد',
-    'Built for':'مصمَّم لـ','Single yards to multi-tenant groups':'من الساحات الفردية إلى المجموعات متعددة المستأجرين',
-    'Mobile app':'تطبيق الجوال','iOS & Android, on request':'iOS وأندرويد، عند الطلب',
-    'Full name':'الاسم الكامل','Work email':'البريد الإلكتروني للعمل','Company':'الشركة','Fleet size':'حجم الأسطول',
-    '1–10 machines':'1–10 آلات','11–50 machines':'11–50 آلة','51–200 machines':'51–200 آلة','200+ machines':'أكثر من 200 آلة',
-    'What should we know?':'ما الذي ينبغي أن نعرفه؟',
-    'Send inquiry ▸':'إرسال الطلب ◂',
-    'Sent straight to our team — usually within one business day.':'يصل مباشرةً إلى فريقنا — عادةً خلال يوم عمل واحد.',
-    'Got it, thank you':'وصلنا، شكراً لك',
-    'Your details are logged and someone from the team will follow up within one business day.':'تم تسجيل بياناتك وسيتواصل معك أحد أعضاء الفريق خلال يوم عمل واحد.',
-    'Couldn\'t reach our server':'تعذّر الوصول إلى خادمنا',
-    'Your inquiry wasn\'t saved automatically. Send it directly instead:':'لم يُحفظ طلبك تلقائياً. أرسله مباشرةً بدلاً من ذلك:',
-    'Open in email app ▸':'افتح في تطبيق البريد ◂','Copy details':'نسخ التفاصيل',
-    'Or reach us directly:':'أو تواصل معنا مباشرةً:','Copy address':'نسخ العنوان',
-    'Fleet maintenance operations — Dashboard · Machines · Maintenance · Garage Receiving · Incidents · Inventory · People & Access · Reports · Notifications · Tyres':'عمليات صيانة الأسطول — لوحة التحكم · الآلات · الصيانة · استقبال الورشة · الحوادث · المخزون · الأشخاص والصلاحيات · التقارير · الإشعارات · الإطارات',
-    'Home':'الرئيسية',
-    'Fleet readiness at a glance, plus the four jobs done most.':'جاهزية الأسطول بنظرة واحدة، مع أكثر أربع مهام تنفيذاً.',
-    'Work orders':'أوامر العمل',
-    'Priority, status and owner on every card.':'الأولوية والحالة والمسؤول على كل بطاقة.',
-    'Work order detail':'تفاصيل أمر العمل',
-    'Checklist, parts and a labour timer, with one button to finish.':'قائمة مهام وقطع ومؤقت عمل، وزر واحد للإنهاء.',
-    'Receive vehicle':'استقبال مركبة',
-    'A four-step wizard that saves every step, even offline.':'معالج من أربع خطوات يحفظ كل خطوة، حتى دون اتصال.',
-    'Vehicle and tyres':'المركبة والإطارات',
-    'Tap a tyre on the axle map to measure or move it.':'المس إطاراً على خريطة المحاور لقياسه أو نقله.',
-    'Report incident':'الإبلاغ عن حادث',
-    'Chips and segments instead of dropdowns, done in under a minute.':'أزرار اختيار بدل القوائم المنسدلة، وتنتهي في أقل من دقيقة.',
-    'Stock':'المخزون',
-    'Shortfalls first, scan to find, bars show distance to minimum.':'النواقص أولاً، وامسح الباركود للبحث، والأشرطة تُظهر القرب من الحد الأدنى.',
-    'Reports':'التقارير',
-    'Downtime, repair time and top causes at a glance.':'التوقف ووقت الإصلاح وأهم الأسباب بنظرة واحدة.',
-    'Arabic, fully mirrored':'العربية بتخطيط معكوس كامل',
-    'Right-to-left layout; IDs and plates stay readable.':'تخطيط من اليمين إلى اليسار، مع بقاء الأرقام واللوحات مقروءة.',
-    'Previous screens':'الشاشات السابقة',
-    'Next screens':'الشاشات التالية',
-    'Mobile app screens':'شاشات تطبيق الجوال',
-    '@alt:Ostool mobile home screen with fleet readiness and quick actions':'لقطة من تطبيق أوستول: Home',
-    '@alt:Ostool mobile work orders list with status filters':'لقطة من تطبيق أوستول: Work orders',
-    '@alt:Ostool mobile work order detail with checklist and parts':'لقطة من تطبيق أوستول: Work order detail',
-    '@alt:Ostool mobile garage receiving wizard, step two':'لقطة من تطبيق أوستول: Receive vehicle',
-    '@alt:Ostool mobile vehicle screen with axle map and tread depth':'لقطة من تطبيق أوستول: Vehicle and tyres',
-    '@alt:Ostool mobile incident report form':'لقطة من تطبيق أوستول: Report incident',
-    '@alt:Ostool mobile inventory list with low stock first':'لقطة من تطبيق أوستول: Stock',
-    '@alt:Ostool mobile reports with downtime chart':'لقطة من تطبيق أوستول: Reports',
-    '@alt:Ostool mobile home screen mirrored in Arabic':'لقطة من تطبيق أوستول: Arabic, fully mirrored',
-    /* generated cards */
-    'Fleet dashboard':'لوحة الأسطول',
-    'Machine status, PM due/overdue, open incidents and outstanding work orders — one live overview.':'حالة الآلات، واستحقاق الصيانة الوقائية وتأخرها، والحوادث المفتوحة وأوامر العمل المعلقة — في نظرة مباشرة واحدة.',
-    'Garage receiving':'استقبال الورشة',
-    'A guided wizard logs every truck and trailer in and out, plate-matched, from gate to sign-off.':'معالج إرشادي يسجّل دخول وخروج كل شاحنة ومقطورة، مع مطابقة اللوحة، من البوابة حتى الاعتماد.',
-    'Preventive maintenance':'الصيانة الوقائية',
-    'Schedules per machine, oil/brake/tyre intervals tracked automatically into work orders.':'جداول لكل آلة، وفترات الزيت والفرامل والإطارات تتحول تلقائياً إلى أوامر عمل.',
-    'Tyre lifecycle':'دورة حياة الإطارات',
-    'Register, install, move axle to axle, track tread depth in millimetres, retire — per tyre, per machine.':'سجّل، وركّب، وانقل من محور إلى آخر، وتتبّع عمق النقوش بالمليمتر، ثم أخرج من الخدمة — لكل إطار ولكل آلة.',
-    'Incidents':'الحوادث',
-    'Severity-ranked incident log, from low to critical, tied back to the machine and its history.':'سجل حوادث مرتّب حسب الخطورة، من المنخفضة إلى الحرجة، ومرتبط بالآلة وتاريخها.',
-    'Inventory':'المخزون',
-    'Parts, reorder thresholds and stock movements, so a low-stock brake pad doesn’t ground a truck.':'القطع وحدود إعادة الطلب وحركات المخزون، حتى لا يوقف نقص تيل الفرامل شاحنة.',
-    'People & access':'الأشخاص والصلاحيات',
-    'Role-based permissions per tenant — who can approve a work order, who can only view.':'صلاحيات حسب الدور لكل مستأجر — من يستطيع اعتماد أمر عمل ومن يكتفي بالعرض.',
-    'Multi-tenant by design':'متعدد المستأجرين بالتصميم',
-    'One tenant code per organisation; a platform admin portal oversees every tenant from above.':'رمز مستأجر واحد لكل مؤسسة؛ وبوابة إدارة المنصة تشرف على جميع المستأجرين.',
-    'Enterprise security, no add-on required':'أمان على مستوى المؤسسات، دون إضافات',
-    'Every tenant’s data is isolated at two independent layers — inside the app and inside the database itself. A multi-branch group or franchise network gets bank-grade separation on one shared platform, at no extra licence cost.':'بيانات كل مستأجر معزولة على طبقتين مستقلتين — داخل التطبيق وداخل قاعدة البيانات نفسها. فتحصل المجموعات متعددة الفروع وشبكات الامتياز على فصل بمستوى البنوك على منصة واحدة مشتركة، دون تكلفة ترخيص إضافية.',
-    'No trailer left untracked':'لا مقطورة بلا تتبّع',
-    'Most systems stop watching the moment a trailer leaves the yard. Ostool logs every hitch and unhitch and infers its mileage automatically, so maintenance and tyre budgets stay accurate for equipment that has no odometer of its own.':'معظم الأنظمة تتوقف عن المراقبة لحظة تغادر المقطورة الساحة. أما أوستول فيسجّل كل ربط وفك ويحتسب مسافتها تلقائياً، فتبقى ميزانيات الصيانة والإطارات دقيقة للمعدات التي لا تملك عدّاداً خاصاً بها.',
-    'Breakdowns get caught before they happen':'الأعطال تُكتشف قبل وقوعها',
-    'The instant a reading is logged, every maintenance schedule tied to that machine updates — due and overdue work surfaces immediately, and one click turns it into an approved work order. No waiting on an overnight job.':'فور تسجيل قراءة، تتحدّث كل جداول الصيانة المرتبطة بتلك الآلة — فتظهر الأعمال المستحقة والمتأخرة فوراً، وبنقرة واحدة تتحول إلى أمر عمل معتمد. دون انتظار مهمة ليلية.',
-    'Your crew stays productive, signal or not':'طاقمك يبقى منتجاً، بوجود الإشارة أو بدونها',
-    'The Ostool mobile app for iOS and Android keeps working with zero connection. Readings, work orders and incident reports queue locally and sync the moment signal returns — no double-entry, no lost work.':'يواصل تطبيق أوستول للجوال على iOS وأندرويد العمل دون أي اتصال. تُحفظ القراءات وأوامر العمل وبلاغات الحوادث محلياً وتتزامن فور عودة الإشارة — دون إدخال مزدوج ودون ضياع عمل.',
-    'Request early access ▸':'اطلب وصولاً مبكراً ◂',
-    /* Oz guide */
-    'Take the tour':'ابدأ الجولة',
-    'Oz, the Ostool guide. Start the feature tour':'أوز، مرشد أوستول. ابدأ جولة الميزات',
-    'Close the tour':'إغلاق الجولة',
-    'Hi, I’m Oz 👋':'مرحباً، أنا أوز 👋',
-    'Ostool’s yard truck. Want a 30-second tour of what Ostool does for your fleet?':'أنا شاحنة الساحة في أوستول. هل تريد جولة في 30 ثانية عمّا يقدمه أوستول لأسطولك؟',
-    'Not now':'ليس الآن','Show me':'أرني','Back':'السابق','Next':'التالي','Fill in the form':'املأ النموذج',
-    'I keep an eye on the yard. This is your fleet dashboard: which trucks are active, in maintenance or grounded, what PM is due or overdue, and which work orders are waiting.':'أراقب الساحة. هذه لوحة أسطولك: أي الشاحنات نشطة أو في الصيانة أو متوقفة، وما الصيانة الوقائية المستحقة أو المتأخرة، وأي أوامر العمل بانتظار الإجراء.',
-    'Everything in one portal':'كل شيء في بوابة واحدة',
-    'Garage receiving, preventive maintenance, tyres, incidents, inventory and user access, all behind one sign-in. No more spreadsheets and WhatsApp groups.':'استقبال الورشة والصيانة الوقائية والإطارات والحوادث والمخزون وصلاحيات المستخدمين، كلها خلف تسجيل دخول واحد. وداعاً لجداول البيانات ومجموعات واتساب.',
-    'The gate becomes a checkpoint':'البوابة تصبح نقطة تفتيش',
-    'Every truck and trailer is logged at the gate by plate number, with the driver, odometer and time recorded from the first minute. No paper logbook, no disputes later.':'تُسجَّل كل شاحنة ومقطورة عند البوابة برقم اللوحة، مع السائق والعدّاد والوقت منذ الدقيقة الأولى. لا دفتر ورقي ولا نزاعات لاحقاً.',
-    'Problems flagged early':'المشكلات تُرصد مبكراً',
-    'Overdue service, worn tyres, expiring documents and low stock show up as alerts right away, so you fix things before a truck breaks down on the road.':'تظهر الصيانة المتأخرة والإطارات المهترئة والوثائق الموشكة على الانتهاء ونقص المخزون كتنبيهات فورية، فتعالجها قبل أن تتعطل شاحنة على الطريق.',
-    'Ostool in your pocket':'أوستول في جيبك',
-    'The mobile app puts the dashboard, vehicle search and Garage Receiving on your phone, so the crew can work right at the gate and the workshop.':'يضع تطبيق الجوال لوحة التحكم والبحث عن المركبات واستقبال الورشة على هاتفك، فيعمل الطاقم عند البوابة وفي الورشة مباشرةً.',
-    'Built for how a real yard works':'مبني على طريقة عمل الساحة الحقيقية',
-    'Trailer mileage is tracked automatically from hitch to unhitch, each company’s data stays isolated, and the mobile app keeps working without signal.':'تُتتبَّع مسافة المقطورة تلقائياً من الربط إلى الفك، وتبقى بيانات كل شركة معزولة، ويواصل تطبيق الجوال العمل دون إشارة.',
-    'Want to see it with your fleet?':'هل تريد رؤيته مع أسطولك؟',
-    'Leave your details here and we’ll walk you through Ostool live, with your own trucks and workflows.':'اترك بياناتك هنا وسنعرض لك أوستول مباشرةً، بشاحناتك ومسارات عملك.',
-    'Sending…':'جارٍ الإرسال…','Copied ✓':'تم النسخ ✓',
-    /* attributes */
-    '@alt:Ostool mobile dashboard showing machines by status and the PM schedule':'لوحة تحكم تطبيق أوستول تعرض الآلات حسب الحالة وجدول الصيانة الوقائية',
-    '@alt:Ostool mobile vehicles list with plate search and status filter':'قائمة المركبات في تطبيق أوستول مع البحث برقم اللوحة وتصفية الحالة',
-    '@alt:Ostool mobile Garage Receiving list with a Receive Truck/Trailer button':'قائمة استقبال الورشة في تطبيق أوستول مع زر استقبال شاحنة/مقطورة',
-    '@placeholder:Jordan Reyes':'أحمد محمود',
-    '@placeholder:Reyes Logistics':'شركة المحمود للنقل',
-    '@placeholder:e.g. we currently track PM schedules in a spreadsheet across three yards…':'مثال: نتتبع جداول الصيانة الوقائية حالياً في جدول بيانات عبر ثلاث ساحات…'
+    "Menu":"القائمة",
+    "Product":"المنصة",
+    "Mobile":"التطبيق",
+    "Demo":"الجولة",
+    "Contact":"تواصل معنا",
+    "Watch the tour":"شاهد الجولة",
+    "Get a demo":"احجز عرضك",
+    "New:":"جديد:",
+    "Ostool now fits in your pocket — and works with no signal.":"أسطول صار في جيبك.. ويعمل حتى بلا إنترنت.",
+    "See it in action ▸":"شاهده وهو يعمل ◂",
+    "Fleet maintenance, minus the chaos":"صيانة بلا فوضى.. وأسطول بلا مفاجآت",
+    "Stop chasing trucks. Start running your fleet.":"أسطولك كله.. في قبضة يدك.",
+    "One screen shows what is running, what is due, and what is about to break — before it costs you a day.":"تعرف ما يعمل، وما حان موعده، وما يوشك أن يتعطّل — قبل أن يضيع عليك يوم عمل كامل.",
+    "Watch it in 2 minutes ▸":"شاهده في دقيقتين ◂",
+    "Fleet status":"حالة الأسطول",
+    "Machines by current state":"الآلات حسب حالتها الآن",
+    "● live":"● مباشر",
+    "machines":"آلة",
+    "Active":"تعمل",
+    "In maintenance":"في الصيانة",
+    "Grounded":"متوقفة",
+    "PM due soon":"صيانة قريبة",
+    "PM overdue":"صيانة متأخرة",
+    "WOs pending":"أوامر معلّقة",
+    "Everything in one place":"كل شيء في مكان واحد",
+    "Ten jobs. One login. Zero spreadsheets.":"عشر مهام.. بدخول واحد، وبلا جداول إكسل.",
+    "Everything your team does in a day, on one platform.":"كل ما يفعله فريقك خلال يومه، على منصة واحدة.",
+    "Premium feature":"ميزة مميّزة",
+    "The gate is where problems begin":"من البوابة تبدأ المشاكل",
+    "Know exactly what rolled in — and who brought it.":"من دخل، وبماذا، ومتى؟ الجواب عندك دائماً.",
+    "Every truck and trailer becomes a record the moment it arrives. No logbook. No arguments later.":"كل شاحنة ومقطورة تتحوّل إلى سجلّ لحظة وصولها. بلا دفتر ورقي، وبلا خلافات لاحقاً.",
+    "No mystery trailers":"لا مقطورات مجهولة",
+    "Every hitch and unhitch is logged the moment it happens.":"كل ربطٍ وفكٍّ يُسجَّل لحظة حدوثه.",
+    "The right vehicle, every time":"المركبة الصحيحة دائماً",
+    "Plate matching keeps records off the wrong truck.":"مطابقة اللوحة تمنع تسجيل البيانات على شاحنة خاطئة.",
+    "Proof from minute one":"إثبات من الدقيقة الأولى",
+    "Driver, odometer and time — captured right at the gate.":"السائق والعدّاد والوقت — تُسجَّل عند البوابة مباشرة.",
+    "See Garage Receiving ▸":"شاهد استقبال الورشة ◂",
+    "Receive a truck or trailer":"استقبال شاحنة أو مقطورة",
+    "Guided wizard":"معالج إرشادي",
+    "Truck plate":"لوحة الشاحنة",
+    "Trailer plate":"لوحة المقطورة",
+    "Driver: Mahmoud · Completed":"السائق: محمود · مكتمل",
+    "Signed off":"تم الاعتماد",
+    "Driver: Ahmed · Started 12:42 PM":"السائق: أحمد · بدأ 12:42 م",
+    "In progress":"قيد التنفيذ",
+    "Notifications":"الإشعارات",
+    "3 unread":"3 غير مقروءة",
+    "PM Oil Change Overdue":"تأخّر تغيير الزيت",
+    "Oil Change is overdue for TRK-1012 · 2 min ago":"تغيير الزيت متأخر للشاحنة TRK-1012 · منذ دقيقتين",
+    "PM Brake Pads Due Soon":"تيل الفرامل يقترب موعده",
+    "Brake Pads is due soon for TRK-1012 · 1 hr ago":"موعد تغيير تيل الفرامل قريب للشاحنة TRK-1012 · منذ ساعة",
+    "Tyre life / tread alert":"تنبيه: عمر الإطار",
+    "SEED-TRK-1012-SPARE is below minimum tread depth · 3 hr ago":"عمق نقوش SEED-TRK-1012-SPARE أقل من الحد الأدنى · منذ 3 ساعات",
+    "Real-time":"لحظي",
+    "Hear it before it breaks":"اعرف قبل أن يتعطّل",
+    "The alert arrives. The breakdown does not.":"يصل التنبيه.. ولا يقع العطل.",
+    "Overdue service, worn tyres, expiring papers, low stock — the right person is told instantly.":"صيانة متأخرة، إطارات مهترئة، أوراق توشك على الانتهاء، مخزون يقارب النفاد — والشخص المناسب يعلم في الحال.",
+    "Nine kinds of trouble, watched for you":"تسعة أنواع من المشاكل تحت المراقبة",
+    "Service, incidents, tyres, documents, stock and more — set up your way.":"الصيانة والحوادث والإطارات والوثائق والمخزون وغيرها — تضبطها كما يناسبك.",
+    "On the app, by email, or by phone":"على التطبيق أو البريد أو الهاتف",
+    "A critical alert never waits for someone to open a dashboard.":"التنبيه العاجل لا ينتظر أحداً ليفتح لوحة التحكم.",
+    "One tap to the fix":"لمسة واحدة وتصل إلى الحل",
+    "Every alert opens the exact vehicle, order or part.":"كل تنبيه يفتح المركبة أو الأمر أو القطعة المعنية مباشرة.",
+    "See alerts in action ▸":"شاهد التنبيهات أثناء العمل ◂",
+    "The mobile app":"تطبيق الجوال",
+    "The yard floor, in your pocket.":"ساحتك كلها في جيبك.",
+    "Receive trucks, report issues, check the fleet — from your phone.":"استقبل الشاحنات، وبلّغ عن الأعطال، وتابع الأسطول — من هاتفك.",
+    "Home":"الرئيسية",
+    "Fleet readiness, one glance.":"جاهزية الأسطول بنظرة واحدة.",
+    "Work orders":"أوامر العمل",
+    "Who's on what, and how urgent.":"من يعمل على ماذا، ومدى استعجاله.",
+    "Work order detail":"تفاصيل أمر العمل",
+    "Checklist, parts, timer — one tap to finish.":"قائمة مهام وقطع ومؤقت — ولمسة واحدة للإنهاء.",
+    "Receive vehicle":"استقبال مركبة",
+    "Four steps. Saved even offline.":"أربع خطوات، وتُحفظ حتى دون إنترنت.",
+    "Vehicle and tyres":"المركبة والإطارات",
+    "Tap any tyre to measure or move it.":"المس أي إطار لتقيسه أو تنقله.",
+    "Driver management":"إدارة السائقين",
+    "Find a driver. Call in one tap.":"ابحث عن السائق، واتصل به بلمسة.",
+    "Report incident":"الإبلاغ عن حادث",
+    "Report an incident in under a minute.":"بلّغ عن حادث في أقل من دقيقة.",
+    "Stock":"المخزون",
+    "Shortages first. Scan to find.":"النواقص أولاً، وامسح الباركود لتجد ما تريد.",
+    "Reports":"التقارير",
+    "Downtime and its causes, at a glance.":"التوقّف وأسبابه بنظرة واحدة.",
+    "Built for Arabic":"مصمَّم للعربية",
+    "True right-to-left, not an afterthought.":"من اليمين إلى اليسار بشكل أصيل، لا كإضافة لاحقة.",
+    "Alerts that find you":"تنبيهات تصلك أينما كنت",
+    "A heads-up before service is due or a tyre wears out.":"تنبيه قبل موعد الصيانة أو انتهاء عمر الإطار.",
+    "Why Ostool":"لماذا أسطول",
+    "Fleets that switch, stay.":"من جرّب أسطول.. لا يعود لغيره.",
+    "Built around how a real yard works, not how software imagines it.":"صُنع للساحة كما هي، لا كما تتخيّلها البرامج.",
+    "The old way":"الطريقة القديمة",
+    "Spreadsheets, WhatsApp groups, a paper gate log":"جداول بيانات، ومجموعات واتساب، ودفتر بوابة ورقي",
+    "One shared login for everyone":"حساب دخول واحد يشترك فيه الجميع",
+    "Tracking stops when a trailer leaves the yard":"التتبّع ينقطع بمجرد خروج المقطورة من الساحة",
+    "Tools that go dark when the wifi does":"أدوات تتوقف لحظة ينقطع الواي فاي",
+    "The Ostool way":"طريقة أسطول",
+    "One system, from the gate to the work order":"نظام واحد، من البوابة إلى أمر العمل",
+    "Each company's data sealed in two layers":"بيانات كل شركة محمية بطبقتين",
+    "Trailer mileage tracked automatically":"مسافة المقطورة تُحتسب تلقائياً",
+    "A mobile app that works with no signal":"تطبيق جوال يعمل دون إشارة",
+    "Seeing is believing":"شاهد بنفسك",
+    "Two minutes. The whole platform.":"دقيقتان.. والمنصة كلها أمامك.",
+    "From sign-in to sign-out, recorded live.":"من تسجيل الدخول إلى الخروج، مسجّلة مباشرة.",
+    "1:49 · recorded from the live platform":"1:49 · مسجّل من المنصة الفعلية",
+    "Want a live walkthrough? ▸":"اطلب جولة مباشرة ◂",
+    "portals, one built for each role":"بوابات، لكل دور بوابته",
+    "workflows behind one login":"مسار عمل خلف دخول واحد",
+    "languages — Arabic and English, fully right-to-left":"لغتان: العربية والإنجليزية، بتخطيط كامل من اليمين إلى اليسار",
+    "Let's talk":"لنتحدث",
+    "Ready to see your fleet this clearly?":"مستعد لترى أسطولك بهذا الوضوح؟",
+    "Tell us about your fleet.":"حدّثنا عن أسطولك.",
+    "Two minutes of details. A demo built around your yard.":"دقيقتان لتعبئة التفاصيل، وعرض مصمَّم على قياس ساحتك.",
+    "Email":"البريد الإلكتروني",
+    "Response time":"سرعة الرد",
+    "Within one business day":"خلال يوم عمل واحد",
+    "Built for":"يناسب",
+    "Single yards to multi-tenant groups":"من ساحة واحدة إلى مجموعات متعددة الفروع",
+    "Mobile app":"تطبيق الجوال",
+    "iOS & Android, on request":"iOS وأندرويد، عند الطلب",
+    "Full name":"الاسم الكامل",
+    "Work email":"بريد العمل",
+    "Company":"الشركة",
+    "Fleet size":"حجم الأسطول",
+    "1–10 machines":"1–10 آلات",
+    "11–50 machines":"11–50 آلة",
+    "51–200 machines":"51–200 آلة",
+    "200+ machines":"أكثر من 200 آلة",
+    "What should we know?":"ما الذي تودّ أن نعرفه؟",
+    "Book my demo ▸":"احجز عرضي التجريبي ◂",
+    "We reply within one business day.":"نردّ عليك خلال يوم عمل واحد.",
+    "Got it, thank you":"وصلتنا رسالتك، شكراً لك",
+    "Done. Someone from the team will reach out within one business day.":"تم. سيتواصل معك أحد أفراد الفريق خلال يوم عمل واحد.",
+    "Couldn't reach our server":"تعذّر الاتصال بالخادم",
+    "Your inquiry wasn't saved automatically. Send it directly instead:":"لم يُحفظ طلبك تلقائياً. أرسله إلينا مباشرة:",
+    "Open in email app ▸":"افتح في تطبيق البريد ◂",
+    "Copy details":"انسخ التفاصيل",
+    "Or reach us directly:":"أو راسلنا مباشرة:",
+    "Copy address":"انسخ العنوان",
+    "Fleet maintenance operations — Dashboard · Machines · Maintenance · Garage Receiving · Incidents · Inventory · People & Access · Reports · Notifications · Tyres":"عمليات صيانة الأسطول — لوحة التحكم · الآلات · الصيانة · استقبال الورشة · الحوادث · المخزون · الأشخاص والصلاحيات · التقارير · الإشعارات · الإطارات",
+    "Fleet dashboard":"لوحة الأسطول",
+    "See the whole fleet at a glance — running, due, or down.":"الأسطول كله في نظرة: ما يعمل، وما حان وقته، وما تعطّل.",
+    "Garage receiving":"استقبال الورشة",
+    "Every truck logged at the gate, plate-matched, signed off.":"كل شاحنة تُسجَّل عند البوابة بلوحتها، ثم تُعتمد.",
+    "Preventive maintenance":"الصيانة الوقائية",
+    "Service reminders that turn into work orders by themselves.":"تنبيهات الصيانة تتحوّل إلى أوامر عمل من تلقاء نفسها.",
+    "Tyre lifecycle":"عمر الإطارات",
+    "Know every tyre's tread, position and remaining life.":"اعرف عمق النقوش وموضع كل إطار وما تبقّى من عمره.",
+    "Incidents":"الحوادث",
+    "Report in under a minute, ranked by severity.":"بلّغ في أقل من دقيقة، ومرتّبة حسب الخطورة.",
+    "Inventory":"المخزون",
+    "Never ground a truck over a missing brake pad.":"لا توقف شاحنة بسبب تيل فرامل ناقص.",
+    "People & access":"الأشخاص والصلاحيات",
+    "Everyone sees and does only what their role allows.":"كلٌّ يرى ويفعل ما يسمح به دوره فقط.",
+    "Built for many branches":"مصمَّم لتعدد الفروع",
+    "One platform for every branch, each with its own private data.":"منصة واحدة لكل الفروع، وبيانات كل فرع خاصة به.",
+    "Bank-grade privacy, included":"خصوصية بمستوى البنوك، ضمن الاشتراك",
+    "Every company's data is isolated in two independent layers — at no extra cost.":"بيانات كل شركة معزولة في طبقتين مستقلتين، دون أي تكلفة إضافية.",
+    "No trailer left untracked":"لا مقطورة بلا تتبّع",
+    "Hitches are logged, so mileage and tyre costs stay accurate — even without an odometer.":"يُسجَّل كل ربط وفك، فتبقى المسافات وتكاليف الإطارات دقيقة حتى دون عدّاد.",
+    "Catch breakdowns before they happen":"اكتشف العطل قبل وقوعه",
+    "Log a reading and every schedule updates instantly. One click makes it a work order.":"سجّل قراءة فتتحدّث كل الجداول فوراً، وبنقرة واحدة تصبح أمر عمل.",
+    "Your crew keeps working, signal or not":"فريقك يواصل العمل، بإشارة أو بدونها",
+    "Works offline on iOS and Android — everything syncs the moment signal returns.":"يعمل دون اتصال على iOS وأندرويد، ويتزامن كل شيء فور عودة الإشارة.",
+    "Request early access ▸":"احجز مكانك مبكراً ◂",
+    "Hi, I’m Oz 👋":"أهلاً، أنا أوز 👋",
+    "This is your whole fleet at a glance: running, in the garage, or down.":"هذا أسطولك كله أمامك: ما يعمل، وما في الورشة، وما تعطّل.",
+    "Receiving, maintenance, tyres, stock, people — one login.":"الاستقبال والصيانة والإطارات والمخزون والفريق — بدخول واحد.",
+    "The gate becomes a checkpoint":"البوابة تصبح نقطة تفتيش",
+    "Every truck logged by plate, driver and odometer. No more paper.":"كل شاحنة تُسجَّل بلوحتها وسائقها وعدّادها. وداعاً للورق.",
+    "Problems flagged early":"المشاكل تُرصد مبكراً",
+    "Overdue service, worn tyres, expiring papers — you hear first.":"صيانة متأخرة، إطارات مهترئة، أوراق منتهية — وأنت أول من يعلم.",
+    "Ostool in your pocket":"أسطول في جيبك",
+    "Receive trucks and fix issues right from the gate.":"استقبل الشاحنات وعالج الأعطال من البوابة مباشرة.",
+    "Built for a real yard":"مبني لساحة حقيقية",
+    "Trailer mileage, private data and offline apps — all included.":"مسافة المقطورة، وخصوصية البيانات، وتطبيق دون إنترنت — كلها ضمن المنصة.",
+    "Want to see it with your fleet?":"هل تريد رؤيته مع أسطولك؟",
+    "Leave your details — we’ll run a live demo with your own trucks.":"اترك بياناتك، وسنعرض لك أسطول مباشرةً بشاحناتك أنت.",
+    "Want a 30-second tour? I’ll show you the good parts.":"تريد جولة في 30 ثانية؟ سأريك أجمل ما في أسطول.",
+    "Sending…":"جارٍ الإرسال…",
+    "Copied ✓":"تم النسخ ✓",
+    "Take the tour":"جولة سريعة",
+    "Oz, the Ostool guide. Start the feature tour":"أوز، مرشد أسطول. ابدأ جولة الميزات",
+    "Close the tour":"إغلاق الجولة",
+    "Not now":"ليس الآن",
+    "Show me":"أرني",
+    "Back":"السابق",
+    "Next":"التالي",
+    "Fill in the form":"املأ النموذج",
+    "Previous screens":"الشاشات السابقة",
+    "Next screens":"الشاشات التالية",
+    "Mobile app screens":"شاشات تطبيق الجوال",
+    "@alt:Ostool push notification on a phone lock screen: Tyre life/tread alert":"إشعار من أسطول على شاشة القفل: تنبيه عمر الإطار",
+    "@alt:Ostool mobile driver management with search and driver card":"تطبيق أسطول: إدارة السائقين",
+    "@placeholder:Jordan Reyes":"أحمد محمود",
+    "@placeholder:Reyes Logistics":"شركة المحمود للنقل",
+    "@placeholder:e.g. we currently track PM schedules in a spreadsheet across three yards…":"مثال: نتابع الصيانة الوقائية حالياً في جدول بيانات موزّع على ثلاث ساحات…",
+    "@alt:Ostool mobile home screen with fleet readiness and quick actions":"لقطة من تطبيق أسطول: الرئيسية",
+    "@alt:Ostool mobile work orders list with status filters":"لقطة من تطبيق أسطول: أوامر العمل",
+    "@alt:Ostool mobile work order detail with checklist and parts":"لقطة من تطبيق أسطول: تفاصيل أمر العمل",
+    "@alt:Ostool mobile garage receiving wizard, step two":"لقطة من تطبيق أسطول: استقبال مركبة",
+    "@alt:Ostool mobile vehicle screen with axle map and tread depth":"لقطة من تطبيق أسطول: المركبة والإطارات",
+    "@alt:Ostool mobile incident report form":"لقطة من تطبيق أسطول: الإبلاغ عن حادث",
+    "@alt:Ostool mobile inventory list with low stock first":"لقطة من تطبيق أسطول: المخزون",
+    "@alt:Ostool mobile reports with downtime chart":"لقطة من تطبيق أسطول: التقارير",
+    "@alt:Ostool mobile home screen mirrored in Arabic":"لقطة من تطبيق أسطول: الواجهة بالعربية"
   };
 
   var KEY = 'ostoolLang', ATTRS = ['placeholder','alt','aria-label'];
@@ -1155,6 +1179,7 @@
     }
     if (persist) { try { localStorage.setItem(KEY, lang); } catch(e){} }
     listeners.forEach(function(fn){ fn(lang); });
+    window.dispatchEvent(new Event('ostool:lang'));
   }
 
   window.OstoolI18n = {
@@ -1168,7 +1193,12 @@
 
   var saved = null;
   try { saved = localStorage.getItem(KEY); } catch(e){}
-  if (saved === 'ar') apply('ar', false);
+  /* Arabic is the default; run once the whole page (including Oz, which is parsed after this script) exists. */
+  function init(){
+    if (saved !== 'en') apply('ar', false); /* Arabic on a first visit; otherwise respect the saved choice */
+    document.documentElement.className = document.documentElement.className.replace(' i18n-pending','');
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
 </script>
 
@@ -1266,13 +1296,13 @@
 <script>
 (function(){
   var STEPS = [
-    {sel:'#heroMock', title:'Hi, I\u2019m Oz \uD83D\uDC4B', text:'I keep an eye on the yard. This is your fleet dashboard: which trucks are active, in maintenance or grounded, what PM is due or overdue, and which work orders are waiting.'},
-    {sel:'#featureGrid', title:'Everything in one portal', text:'Garage receiving, preventive maintenance, tyres, incidents, inventory and user access, all behind one sign-in. No more spreadsheets and WhatsApp groups.'},
-    {sel:'#receiving .receiving-mock', title:'The gate becomes a checkpoint', text:'Every truck and trailer is logged at the gate by plate number, with the driver, odometer and time recorded from the first minute. No paper logbook, no disputes later.'},
-    {sel:'#notifications .notif-mock', title:'Problems flagged early', text:'Overdue service, worn tyres, expiring documents and low stock show up as alerts right away, so you fix things before a truck breaks down on the road.'},
-    {sel:'#mobile .phones', title:'Ostool in your pocket', text:'The mobile app puts the dashboard, vehicle search and Garage Receiving on your phone, so the crew can work right at the gate and the workshop.'},
-    {sel:'#difference .compare', title:'Built for how a real yard works', text:'Trailer mileage is tracked automatically from hitch to unhitch, each company\u2019s data stays isolated, and the mobile app keeps working without signal.'},
-    {sel:'#leadForm', title:'Want to see it with your fleet?', text:'Leave your details here and we\u2019ll walk you through Ostool live, with your own trucks and workflows.', last:true}
+    {"sel":"#heroMock","title":"Hi, I’m Oz 👋","text":"This is your whole fleet at a glance: running, in the garage, or down."},
+    {"sel":"#featureGrid","title":"Everything in one place","text":"Receiving, maintenance, tyres, stock, people — one login."},
+    {"sel":"#receiving .receiving-mock","title":"The gate becomes a checkpoint","text":"Every truck logged by plate, driver and odometer. No more paper."},
+    {"sel":"#notifications .notif-mock","title":"Problems flagged early","text":"Overdue service, worn tyres, expiring papers — you hear first."},
+    {"sel":"#mobile .phones","title":"Ostool in your pocket","text":"Receive trucks and fix issues right from the gate."},
+    {"sel":"#difference .compare","title":"Built for a real yard","text":"Trailer mileage, private data and offline apps — all included."},
+    {"sel":"#leadForm","title":"Want to see it with your fleet?","text":"Leave your details — we’ll run a live demo with your own trucks.","last":true}
   ];
   var KEY = 'ozTour.v1';
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1320,7 +1350,7 @@
     step = -1; open();
     titleEl.textContent = T('Hi, I\u2019m Oz \uD83D\uDC4B');
     Array.prototype.forEach.call(dotsEl.children,function(d){ d.classList.remove('on'); });
-    type(T('Ostool\u2019s yard truck. Want a 30-second tour of what Ostool does for your fleet?'));
+    type(T("Want a 30-second tour? I’ll show you the good parts."));
     actions([ makeBtn('Not now','btn-ghost',close), makeBtn('Show me','btn-accent',function(){ go(0); }) ]);
   }
 
