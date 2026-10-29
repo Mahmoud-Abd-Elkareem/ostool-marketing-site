@@ -282,7 +282,7 @@
   .demo-caption span{font-size:13px;color:var(--ink-faint);font-family:var(--font-mono)}
 
   /* ---- stat band ---- */
-  .stat-band{background:var(--navy);border-radius:20px;padding:clamp(28px,5vw,48px);display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;overflow:hidden}
+  .stat-band{background:var(--navy);border-radius:20px;padding:clamp(28px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;position:relative;overflow:hidden}
   .stat-band::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 200px at 15% 0%, color-mix(in srgb,var(--accent) 22%, transparent), transparent 70%)}
   @media (max-width:700px){.stat-band{grid-template-columns:1fr}}
   .stat{position:relative;color:var(--on-navy)}
@@ -362,6 +362,103 @@
     .nav-actions .btn-accent{display:none}
     .eyebrow{letter-spacing:.1em;font-size:11px}
   }
+
+  /* ---- v2: new capabilities, beside-your-ERP, mobile showcase ---- */
+  .tag-soon{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a5a00;background:color-mix(in srgb,var(--warn) 24%,transparent);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tag-new{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#0A6B0A;background:color-mix(in srgb,var(--good) 18%,transparent);padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .tag-new::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--good)}
+  html[lang="ar"] .tag-new{font-family:var(--font-body)}
+  :root[data-theme="dark"] .tag-new{color:#7BE07B}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag-new{color:#7BE07B}}
+  .tag-soon::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--warn)}
+  html[lang="ar"] .tag-soon{font-family:var(--font-body)}
+  :root[data-theme="dark"] .tag-soon{color:#FAD27A}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag-soon{color:#FAD27A}}
+  html[lang="ar"] .hero-note{font-family:var(--font-body);font-size:13.5px}
+  .features.f3{grid-template-columns:repeat(3,1fr)}
+  @media (max-width:900px){.features.f3{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.features.f3{grid-template-columns:1fr}}
+  .card.cap{display:flex;flex-direction:column;align-items:flex-start}
+  .card.cap .cap-top{display:flex;justify-content:space-between;align-items:flex-start;width:100%;gap:10px}
+  .card.cap .cap-top i{margin-bottom:14px}
+  .card.cap .cap-for{margin-top:auto;padding-top:14px;font-size:12px;color:var(--ink-faint);font-weight:600}
+  .group-label{display:flex;align-items:center;gap:12px;margin:34px 0 14px;font-family:var(--font-mono);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+  .group-label::after{content:"";height:1px;flex:1;background:var(--border)}
+  html[lang="ar"] .compare-col h4,html[lang="ar"] .stage-tab{font-family:var(--font-body);font-size:14px}
+  html[lang="ar"] .group-label{font-family:var(--font-body);font-size:14px}
+
+  .flow{display:grid;grid-template-columns:1fr 64px 230px 64px 1fr;align-items:center;margin-top:44px}
+  .flow>*{min-width:0}
+  .flow-col{display:grid;gap:12px}
+  .flow-node{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow-card)}
+  .flow-node b{display:block;font-family:var(--font-display);font-size:14px}
+  .flow-node span{display:block;font-size:12px;color:var(--ink-muted);margin-top:2px}
+  .flow-node .tag-soon{display:inline-flex;margin-top:8px}
+  .flow-hub{background:var(--navy);color:var(--on-navy);border-radius:20px;padding:26px 18px;text-align:center;box-shadow:var(--shadow-lift)}
+  .flow-hub .brand-mark{font-size:44px;color:var(--on-navy);display:inline-block}
+  .flow-hub b{display:block;font-family:var(--font-display);font-size:17px;margin-top:10px}
+  .flow-hub span{display:block;font-size:12.5px;color:var(--on-navy-muted);margin-top:4px}
+  .flow-arrow{height:2px;background:repeating-linear-gradient(90deg,var(--accent) 0 10px,transparent 10px 18px);position:relative;opacity:.8}
+  .flow-arrow::before,.flow-arrow::after{content:"";position:absolute;top:-4px;width:8px;height:8px;border-top:2px solid var(--accent);border-inline-start:2px solid var(--accent)}
+  .flow-arrow::before{inset-inline-start:0;transform:rotate(-45deg)}
+  .flow-arrow::after{inset-inline-end:0;transform:rotate(135deg)}
+  html[dir="rtl"] .flow-arrow::before{transform:rotate(45deg)} html[dir="rtl"] .flow-arrow::after{transform:rotate(-135deg)}
+  @media (max-width:900px){
+    .flow{grid-template-columns:1fr;gap:14px}
+    .flow-arrow{width:2px;height:34px;margin-inline:auto;background:repeating-linear-gradient(180deg,var(--accent) 0 8px,transparent 8px 14px)}
+    .flow-arrow::before,.flow-arrow::after{display:none}
+  }
+  .flow-points{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+  @media (max-width:820px){.flow-points{grid-template-columns:1fr}}
+  .flow-points div{border-top:2px solid var(--accent);padding-top:14px}
+  .flow-points b{display:block;font-family:var(--font-display);font-size:15.5px}
+  .flow-points span{display:block;font-size:13.5px;color:var(--ink-muted);margin-top:6px}
+
+  .compare-col ul{gap:13px}
+  .stage-tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:34px}
+  .stage-tab{font-family:var(--font-body);font-weight:700;font-size:13.5px;border:1px solid var(--border);background:var(--surface);color:var(--ink-muted);border-radius:999px;padding:9px 16px;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+  .stage-tab:hover{color:var(--ink);border-color:var(--ink-faint)}
+  .stage-tab[aria-selected="true"]{background:var(--navy);color:var(--on-navy);border-color:var(--navy)}
+  :root[data-theme="dark"] .stage-tab[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .stage-tab[aria-selected="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}}
+  .stage-tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+  .phones-wrap{margin-top:26px;border-radius:28px;background:radial-gradient(120% 90% at 50% 0%,color-mix(in srgb,var(--accent) 10%,transparent),transparent 62%),var(--surface-2);border:1px solid var(--border)}
+  .phones{justify-content:safe center;gap:clamp(16px,2.4vw,32px);padding:40px 24px 34px}
+  .phone{flex:0 0 clamp(200px,17.6vw,236px);transition:transform .25s ease}
+  .phones-wrap.no-scroll .ph-nav{display:none}
+  .phone:hover{transform:translateY(-6px)}
+  .phone[hidden]{display:none}
+  .phone figcaption{margin-top:16px}
+  .ph-prev{inset-inline-start:10px}.ph-next{inset-inline-end:10px}
+
+  .phone-soon{position:relative}
+  .pv{aspect-ratio:786/1668;background:var(--navy);border-radius:13%/6.2%;padding:2.7%;container-type:inline-size;box-shadow:var(--shadow-lift);border:1px solid var(--navy-3);position:relative}
+  .pv-screen{background:#FAF9F5;border-radius:10.5%/5%;height:100%;padding:10cqw 6cqw 6cqw;display:flex;flex-direction:column;gap:3cqw;overflow:hidden;color:#111827;text-align:start;font-family:var(--font-body);font-size:5cqw;line-height:1.35}
+  .pv-screen *{letter-spacing:0!important}
+  .pv-top{display:flex;justify-content:space-between;align-items:center;gap:2cqw}
+  .pv-h{font-family:var(--font-display);font-weight:800;font-size:7.4cqw;line-height:1.15}
+  .pv-sub{font-size:4.2cqw;color:#6B7280}
+  .pv-chip{font-family:var(--font-mono);font-weight:600;font-size:4.3cqw;background:#111827;color:#fff;border-radius:99px;padding:1cqw 3cqw;white-space:nowrap}
+  html[lang="ar"] .pv-chip{font-family:var(--font-body)}
+  .pv-row{background:#fff;border:1px solid #E5E7EB;border-radius:3.6cqw;padding:3cqw 3.6cqw;display:flex;justify-content:space-between;align-items:center;gap:2cqw}
+  .pv-row b{display:block;font-size:4.8cqw;font-weight:700}
+  .pv-row span.s{display:block;font-size:3.9cqw;color:#6B7280}
+  .pv-b{font-size:3.8cqw;font-weight:700;padding:.9cqw 2.6cqw;border-radius:99px;white-space:nowrap}
+  .pv-b.ok{background:#DDF3DD;color:#0B6B0B}.pv-b.warn{background:#FFF0C7;color:#7A5200}.pv-b.bad{background:#FBE0E0;color:#A12626}.pv-b.go{background:#FF5A1F;color:#fff}
+  .pv-btn{margin-top:auto;background:#FF5A1F;color:#fff;border-radius:3.6cqw;text-align:center;padding:3.2cqw;font-weight:800;font-size:5cqw}
+  .pv-photo{width:9cqw;height:9cqw;border-radius:2cqw;background:linear-gradient(135deg,#9CA3AF,#4B5563);flex-shrink:0}
+  .pv-hero{background:#111827;color:#fff;border-radius:4.4cqw;padding:4cqw 4.4cqw}
+  .pv-hero b{font-family:var(--font-display);font-size:9cqw;display:block;line-height:1.1}
+  .pv-hero span{font-size:4cqw;color:#9CA3AF}
+  .pv-wa{background:#ECE5DD;margin:-10cqw -6cqw -6cqw;padding:10cqw 5cqw 6cqw;flex:1;display:flex;flex-direction:column;gap:3cqw}
+  .pv-wa-head{background:#0B6B5F;color:#fff;margin:-10cqw -5cqw 2cqw;padding:10cqw 5cqw 3.5cqw;font-weight:700;font-size:5cqw}
+  .pv-bub{background:#fff;border-radius:3cqw;padding:3cqw 3.4cqw;max-width:90%;box-shadow:0 1px 1px #0002;font-size:4.5cqw}
+  .pv-bub.me{background:#D9FDD3;align-self:flex-end}
+  .pv-bub .q{display:grid;grid-template-columns:1fr 1fr;gap:2cqw;margin-top:2.4cqw}
+  .pv-bub .q i{font-style:normal;text-align:center;border-top:1px solid #E5E7EB;padding-top:2cqw;color:#0B6B5F;font-weight:700}
+  .pv-bub .q i+i{color:#A12626}
+  .pv-tag{position:absolute;top:-16px;left:50%;transform:translateX(-50%);z-index:3}
+  @media (max-width:640px){.phones-wrap{border-radius:20px}.phones{padding:28px 16px 26px;justify-content:flex-start}.phone{flex-basis:min(228px,68vw)}}
 </style>
 </head>
 <body>
@@ -372,7 +469,9 @@
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <nav class="links" id="navLinks">
       <a href="#product">Product</a>
+      <a href="#new">What's next</a>
       <a href="#mobile">Mobile</a>
+      <a href="#difference">Why Ostool</a>
       <a href="#demo">Demo</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -387,8 +486,8 @@
 <div class="announce">
   <div class="wrap">
     <i aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></i>
-    <span><b>New:</b> Ostool now fits in your pocket — and works with no signal.</span>
-    <a href="#mobile">See it in action ▸</a>
+    <span><b>New:</b> Saudi document compliance, an offline sync centre, a tamper-evident audit trail, downtime tracking, tyre lifecycle intelligence, driver pre-trip checks, automatic service orders and cost per km with repair-or-replace advice are live. GPS and WhatsApp approvals are next.</span>
+    <a href="#new">See what's next ▸</a>
   </div>
 </div>
 
@@ -404,6 +503,7 @@
           <a class="btn btn-accent" href="#contact">Get a demo</a>
           <a class="btn btn-ghost" href="#demo">Watch it in 2 minutes ▸</a>
         </div>
+        <p class="hero-note">Works beside your ERP · Arabic first · Offline ready</p>
       </div>
       <div class="mock reveal" id="heroMock">
         <div class="mock-glow" aria-hidden="true"></div>
@@ -444,6 +544,34 @@
         <p class="lede">Everything your team does in a day, on one platform.</p>
       </div>
       <div class="features reveal-group" id="featureGrid"></div>
+    </div>
+  </section>
+
+
+  <section id="new" style="background:linear-gradient(180deg,transparent,var(--surface-2) 30%,transparent)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">What's next</div>
+        <h2>The yard gets smarter every month.</h2>
+        <p class="lede">Eight more capabilities are on the way. Each one removes a job someone still does by hand today.</p>
+      </div>
+      <div class="features f3 reveal-group" id="capGrid">
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Live from your trucks’ GPS</h3><p>Odometer, engine hours and fault codes arrive on their own. Nobody types a reading again.</p><span class="cap-for">For fleet managers</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg></i><span class="tag-new">New</span></div><h3>Service orders that raise themselves</h3><p>Hit the mileage or date and the work order is drafted, with parts suggested.</p><span class="cap-for">For planners</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 13h6M10 17h6"/></svg></i><span class="tag-new">New</span></div><h3>Never on the road with expired papers</h3><p>Registration, insurance, inspection and operating cards, with Hijri and Gregorian dates and escalating alerts.</p><span class="cap-for">For compliance officers</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-12 6.9L3 20l1.2-5.4A8 8 0 1 1 21 12z"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Approve on WhatsApp</h3><p>A work order needs a yes. One tap in WhatsApp, logged and permission-checked.</p><span class="cap-for">For managers</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12l2 2 4-4"/></svg></i><span class="tag-new">New</span></div><h3>Driver check before every trip</h3><p>A short checklist with photos. A failed item becomes an incident before the truck leaves.</p><span class="cap-for">For drivers</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M14.5 9.2c-.5-.8-1.5-1.2-2.6-1.2-1.5 0-2.6.8-2.6 2s1 1.6 2.7 2 2.7.8 2.7 2-1.2 2-2.7 2c-1.2 0-2.2-.5-2.8-1.4M12 6v2M12 16v2"/></svg></i><span class="tag-new">New</span></div><h3>Cost per km, repair or replace</h3><p>See which trucks cost too much and when replacing beats repairing.</p><span class="cap-for">For owners</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><span class="tag-new">New</span></div><h3>Downtime and availability</h3><p>Hours out of service, why, and what it cost. Targets for each workshop.</p><span class="cap-for">For operations</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></i><span class="tag-new">New</span></div><h3>Tyre cost and retread planning</h3><p>Cost per km by brand, rotation advice and a retread pipeline.</p><span class="cap-for">For tyre managers</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h14M15 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3"/><path d="M8 8h4"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Fuel watch</h3><p>Consumption per truck and driver. Odd fills are flagged within days.</p><span class="cap-for">For fleet managers</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Report by photo or voice note</h3><p>Snap the damage or speak in Arabic. The app drafts the report, you confirm it.</p><span class="cap-for">For technicians</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Outside workshop quotes</h3><p>Request quotes, compare them side by side and match the invoice to the approved price.</p><span class="cap-for">For procurement</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>ZATCA e-invoicing</h3><p>Issue a compliant invoice straight from a completed work order.</p><span class="cap-for">For finance</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 7.8 8 9 4.6-1.2 8-4 8-9V6z"/><path d="M9 11h6M9 14h4"/></svg></i><span class="tag-new">New</span></div><h3>A record nobody can quietly edit</h3><p>Every approval, stock change and permission change is logged and tamper-evident.</p><span class="cap-for">For auditors</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Open API and webhooks</h3><p>Send work orders, costs and stock to your ERP or BI tools, and receive data back.</p><span class="cap-for">For IT teams</span></div>
+        <div class="card cap reveal"><div class="cap-top"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></i><span class="tag-soon">Coming soon</span></div><h3>Single sign-in and branch access</h3><p>Your company login, multi-factor, and each user limited to their own branches.</p><span class="cap-for">For security teams</span></div>
+      </div>
     </div>
   </section>
 
@@ -510,6 +638,36 @@
     </div>
   </section>
 
+
+  <section id="integrate">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="eyebrow">Works beside what you already run</div>
+        <h2>Keep your ERP. Give your yard a system of its own.</h2>
+        <p class="lede">Your ERP keeps finance and HR. Ostool runs trucks, tyres, workshops and stock, then shares the numbers both ways.</p>
+      </div>
+      <div class="flow reveal">
+        <div class="flow-col">
+          <div class="flow-node"><b>Your ERP and accounting</b><span>Ledgers, purchasing, payroll</span><span class="tag-soon">Coming soon</span></div>
+          <div class="flow-node"><b>Reports and BI</b><span>Excel, Power BI and scheduled emails</span><span class="tag-soon">Coming soon</span></div>
+        </div>
+        <div class="flow-arrow" aria-hidden="true"></div>
+        <div class="flow-hub"><span class="brand-mark" id="hubMark"></span><b>Ostool</b><span>The fleet and workshop layer</span></div>
+        <div class="flow-arrow" aria-hidden="true"></div>
+        <div class="flow-col">
+          <div class="flow-node"><b>GPS and telematics</b><span>Readings and fault codes in</span><span class="tag-soon">Coming soon</span></div>
+          <div class="flow-node"><b>WhatsApp</b><span>Alerts and approvals out</span><span class="tag-soon">Coming soon</span></div>
+          <div class="flow-node"><b>ZATCA</b><span>E-invoices from work orders</span><span class="tag-soon">Coming soon</span></div>
+        </div>
+      </div>
+      <div class="flow-points reveal-group">
+        <div class="reveal"><b>No rip and replace</b><span>Start with the yard. Your finance team keeps the system they know.</span></div>
+        <div class="reveal"><b>Costs flow back to your books</b><span>Completed work orders, parts and labour reach your ERP without re-typing.</span></div>
+        <div class="reveal"><b>Open by design</b><span>A documented API and signed webhooks for anything we do not connect for you.</span></div>
+      </div>
+    </div>
+  </section>
+
   <section id="mobile">
     <div class="wrap">
       <div class="section-head reveal">
@@ -517,52 +675,107 @@
         <h2>The yard floor, in your pocket.</h2>
         <p class="lede">Receive trucks, report issues, check the fleet — from your phone.</p>
       </div>
+      <div class="stage-tabs reveal" role="tablist" aria-label="Mobile screens">
+        <button class="stage-tab" role="tab" aria-selected="true" data-g="all" type="button">All screens</button>
+        <button class="stage-tab" role="tab" aria-selected="false" data-g="work" type="button">Daily work</button>
+        <button class="stage-tab" role="tab" aria-selected="false" data-g="fleet" type="button">Fleet and stock</button>
+        <button class="stage-tab" role="tab" aria-selected="false" data-g="safe" type="button">Safety and insight</button>
+        <button class="stage-tab" role="tab" aria-selected="false" data-g="soon" type="button">Coming soon</button>
+      </div>
       <div class="phones-wrap reveal">
         <button class="ph-nav ph-prev" type="button" aria-label="Previous screens">&#8249;</button>
         <div class="phones" id="phoneTrack" tabindex="0" role="region" aria-label="Mobile app screens">
-        <figure class="phone" style="--i:0">
+        <figure class="phone" data-g="work" style="--i:0">
           <img class="shot" src="assets/app-home.png" width="786" height="1668" alt="Ostool mobile home screen with fleet readiness and quick actions" loading="lazy">
           <figcaption><b>Home</b><span>Fleet readiness, one glance.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:1">
+        <figure class="phone" data-g="work" style="--i:1">
           <img class="shot" src="assets/app-work-orders.png" width="786" height="1668" alt="Ostool mobile work orders list with status filters" loading="lazy">
           <figcaption><b>Work orders</b><span>Who's on what, and how urgent.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:2">
+        <figure class="phone" data-g="work" style="--i:2">
           <img class="shot" src="assets/app-work-order.png" width="786" height="1668" alt="Ostool mobile work order detail with checklist and parts" loading="lazy">
           <figcaption><b>Work order detail</b><span>Checklist, parts, timer — one tap to finish.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:3">
+        <figure class="phone" data-g="work" style="--i:3">
           <img class="shot" src="assets/app-receiving.png" width="786" height="1668" alt="Ostool mobile garage receiving wizard, step two" loading="lazy">
           <figcaption><b>Receive vehicle</b><span>Four steps. Saved even offline.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:4">
+        <figure class="phone" data-g="fleet" style="--i:4">
           <img class="shot" src="assets/app-vehicle.png" width="786" height="1668" alt="Ostool mobile vehicle screen with axle map and tread depth" loading="lazy">
           <figcaption><b>Vehicle and tyres</b><span>Tap any tyre to measure or move it.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:4.5">
+        <figure class="phone" data-g="fleet" style="--i:4.5">
           <div class="phone-frame"><img src="assets/app-drivers.png" alt="Ostool mobile driver management with search and driver card" loading="lazy"></div>
           <figcaption><b>Driver management</b><span>Find a driver. Call in one tap.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:5">
+        <figure class="phone" data-g="safe" style="--i:5">
           <img class="shot" src="assets/app-incident.png" width="786" height="1668" alt="Ostool mobile incident report form" loading="lazy">
           <figcaption><b>Report incident</b><span>Report an incident in under a minute.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:6">
+        <figure class="phone" data-g="fleet" style="--i:6">
           <img class="shot" src="assets/app-stock.png" width="786" height="1668" alt="Ostool mobile inventory list with low stock first" loading="lazy">
           <figcaption><b>Stock</b><span>Shortages first. Scan to find.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:7">
+        <figure class="phone" data-g="safe" style="--i:7">
           <img class="shot" src="assets/app-reports.png" width="786" height="1668" alt="Ostool mobile reports with downtime chart" loading="lazy">
           <figcaption><b>Reports</b><span>Downtime and its causes, at a glance.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:8">
+        <figure class="phone" data-g="work" style="--i:8">
           <img class="shot" src="assets/app-arabic.png" width="786" height="1668" alt="Ostool mobile home screen mirrored in Arabic" loading="lazy">
           <figcaption><b>Built for Arabic</b><span>True right-to-left, not an afterthought.</span></figcaption>
         </figure>
-        <figure class="phone" style="--i:9">
+        <figure class="phone" data-g="safe" style="--i:9">
           <div class="phone-frame"><img src="assets/mobile-notification.png" alt="Ostool push notification on a phone lock screen: Tyre life/tread alert" loading="lazy"></div>
           <figcaption><b>Alerts that find you</b><span>A heads-up before service is due or a tyre wears out.</span></figcaption>
+        </figure>
+
+        <figure class="phone phone-soon" data-g="soon" hidden>
+          <span class="tag-soon pv-tag">Preview</span>
+          <div class="pv"><div class="pv-screen">
+            <div class="pv-top"><div class="pv-h">Pre-trip check</div><span class="pv-chip">T-218</span></div>
+            <div class="pv-sub">4 of 5 items done</div>
+            <div class="pv-row"><div><b>Brakes and pedal</b><span class="s">Checked</span></div><span class="pv-b ok">OK</span></div>
+            <div class="pv-row"><div><b>Tyres and wheel nuts</b><span class="s">Checked</span></div><span class="pv-b ok">OK</span></div>
+            <div class="pv-row" style="border-color:#F2B8B8"><div><b>Left headlight</b><span class="s">Photo added</span></div><span class="pv-photo"></span><span class="pv-b bad">Fail</span></div>
+            <div class="pv-row"><div><b>Lights and horn</b><span class="s">Checked</span></div><span class="pv-b ok">OK</span></div>
+            <div class="pv-row"><div><b>Fluids</b><span class="s">Not checked</span></div><span class="pv-b warn">To do</span></div>
+            <div class="pv-btn">Sign and submit</div>
+          </div></div>
+          <figcaption><b>Driver pre-trip check</b><span>A failed item becomes an incident.</span></figcaption>
+        </figure>
+        <figure class="phone" data-g="safe">
+          <div class="pv"><div class="pv-screen">
+            <div class="pv-top"><div class="pv-h">Documents</div><span class="pv-chip">T-218</span></div>
+            <div class="pv-hero"><b>3 of 4 valid</b><span>1 needs action today</span></div>
+            <div class="pv-row"><div><b>Registration</b><span class="s">Valid for 212 days</span></div><span class="pv-b ok">Valid</span></div>
+            <div class="pv-row"><div><b>Insurance</b><span class="s">Ends in 14 days</span></div><span class="pv-b warn">14 days</span></div>
+            <div class="pv-row" style="border-color:#F2B8B8"><div><b>Periodic inspection</b><span class="s">Expired 3 days ago</span></div><span class="pv-b bad">Expired</span></div>
+            <div class="pv-row"><div><b>Operating card</b><span class="s">Valid for 340 days</span></div><span class="pv-b ok">Valid</span></div>
+            <div class="pv-btn">Renew with camera</div>
+          </div></div>
+          <figcaption><b>Document expiry</b><span>Alerts before a truck is non-compliant.</span></figcaption>
+        </figure>
+        <figure class="phone phone-soon" data-g="soon" hidden>
+          <span class="tag-soon pv-tag">Preview</span>
+          <div class="pv"><div class="pv-screen"><div class="pv-wa">
+            <div class="pv-wa-head">Ostool alerts</div>
+            <div class="pv-bub"><b>Work order WO-1042</b><br>Brake pads · Truck T-218<br>Estimate: 1,240 SAR<div class="q"><i>Approve</i><i>Reject</i></div></div>
+            <div class="pv-bub me">Approved by Ahmed</div>
+            <div class="pv-bub">WO-1042 moved to In progress.</div>
+          </div></div></div>
+          <figcaption><b>One-tap approvals</b><span>Approve a work order from a message.</span></figcaption>
+        </figure>
+        <figure class="phone" data-g="work">
+          <div class="pv"><div class="pv-screen">
+            <div class="pv-top"><div class="pv-h">Sync centre</div><span class="pv-chip">3 waiting</span></div>
+            <div class="pv-sub">Everything you did offline is safe.</div>
+            <div class="pv-row"><div><b>Work order WO-1042</b><span class="s">Completed at 09:14</span></div><span class="pv-b go">Sending</span></div>
+            <div class="pv-row"><div><b>Fuel fill T-218</b><span class="s">Saved at 09:31</span></div><span class="pv-b warn">Waiting</span></div>
+            <div class="pv-row" style="border-color:#F2B8B8"><div><b>Incident photo</b><span class="s">Changed on the server</span></div><span class="pv-b bad">Review</span></div>
+            <div class="pv-btn">Resolve conflict</div>
+          </div></div>
+          <figcaption><b>Offline sync centre</b><span>See what is waiting. Fix conflicts in two taps.</span></figcaption>
         </figure>
         </div>
         <button class="ph-nav ph-next" type="button" aria-label="Next screens">&#8250;</button>
@@ -575,7 +788,7 @@
       <div class="section-head reveal">
         <div class="eyebrow">Why Ostool</div>
         <h2>Fleets that switch, stay.</h2>
-        <p class="lede">Built around how a real yard works, not how software imagines it.</p>
+        <p class="lede">Built around how a real yard works, not how software imagines it. It also works beside the systems you already have.</p>
       </div>
       <div class="compare reveal">
         <div class="compare-col compare-old">
@@ -585,6 +798,9 @@
             <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>One shared login for everyone</li>
             <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Tracking stops when a trailer leaves the yard</li>
             <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Tools that go dark when the wifi does</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Arabic added as an afterthought, dates in one calendar only</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Tyres, trailers and workshops squeezed into a general asset list</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/></svg></i>Approvals that wait until someone is at a desk</li>
           </ul>
         </div>
         <div class="compare-col compare-new">
@@ -594,6 +810,9 @@
             <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Each company's data sealed in two layers</li>
             <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Trailer mileage tracked automatically</li>
             <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>A mobile app that works with no signal</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>True right-to-left Arabic with Hijri and Gregorian dates</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Axle maps, tread depth and trailer hitching built in</li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i>Approve and act from the phone, and from WhatsApp soon</li>
           </ul>
         </div>
       </div>
@@ -624,6 +843,7 @@
         <div class="stat" style="--i:0"><b data-count="3">0</b><span>portals, one built for each role</span></div>
         <div class="stat" style="--i:1"><b data-count="10">0</b><span>workflows behind one login</span></div>
         <div class="stat" style="--i:2"><b data-count="2">0</b><span>languages — Arabic and English, fully right-to-left</span></div>
+        <div class="stat" style="--i:3"><b data-count="8">0</b><span>more capabilities rolling out</span></div>
       </div>
     </div>
   </section>
@@ -663,6 +883,7 @@
                 </select>
               </div>
             </div>
+            <div class="field"><label for="f-systems">Systems you use today (optional)</label><input id="f-systems" name="systems" type="text" placeholder="e.g. our ERP, GPS provider, spreadsheets"></div>
             <div class="field"><label for="f-message">What should we know?</label><textarea id="f-message" name="message" rows="4" placeholder="e.g. we currently track PM schedules in a spreadsheet across three yards…"></textarea></div>
             <input type="checkbox" id="f-botcheck" name="botcheck" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true">
             <button class="btn btn-accent" type="submit" id="submitBtn" style="width:100%;justify-content:center">Book my demo ▸</button>
@@ -708,7 +929,7 @@
   var MARK = '<svg viewBox="0 0 200 200" role="img" aria-hidden="true"><path d="M40 128 V70 H148 Q162 70 162 84 V150" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="18"/><circle cx="78" cy="144" r="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="16"/><circle cx="128" cy="144" r="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-width="16"/><circle cx="78" cy="144" r="6" fill="currentColor"/><circle cx="128" cy="144" r="6" fill="currentColor"/></svg>';
   var WORDMARK = '<svg viewBox="0 42 500 168" role="img" aria-label="ostool"><circle cx="52" cy="150" r="39" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M176 124 C168 111 150 108 139 111 C124 115 121 129 129 137 C137 145 167 146 174 161 C181 178 165 189 149 189 C135 189 125 185 120 176" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M212 62 V166 Q212 189 236 189" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M194 78 H466 Q478 78 478 90" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M478 56 V189" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="290" cy="150" r="39" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="396" cy="150" r="39" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="290" cy="150" r="9" fill="currentColor"/><circle cx="396" cy="150" r="9" fill="currentColor"/></svg>';
 
-  ["navMark","introMark","footMark"].forEach(function(id){ var el=document.getElementById(id); if(el) el.innerHTML = MARK; });
+  ["navMark","introMark","footMark","hubMark"].forEach(function(id){ var el=document.getElementById(id); if(el) el.innerHTML = MARK; });
   ["navWordmark","footWordmark"].forEach(function(id){ var el=document.getElementById(id); if(el) el.innerHTML = WORDMARK; });
   var navMarkEl = document.getElementById('navMark');
   if (navMarkEl) navMarkEl.querySelector('svg').classList.add('draw');
@@ -722,6 +943,8 @@
     inventory:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>',
     people:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16.5 5.2a3.2 3.2 0 0 1 0 6"/><path d="M21 20c0-2.8-1.9-4.8-4.4-5.3"/></svg>',
     tenant:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="10" width="7" height="11"/><rect x="14" y="4" width="7" height="17"/><path d="M6.5 13.5h0M6.5 17h0M17.5 8h0M17.5 11.5h0M17.5 15h0"/></svg>',
+    doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 13h6M10 17h6"/></svg>',
+    sync:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>',
     lang:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg>'
   };
 
@@ -733,6 +956,8 @@
     {"icon":"incidents","title":"Incidents","body":"Report in under a minute, ranked by severity."},
     {"icon":"inventory","title":"Inventory","body":"Never ground a truck over a missing brake pad."},
     {"icon":"people","title":"People & access","body":"Everyone sees and does only what their role allows."},
+    {"icon":"doc","title":"Compliance and documents","body":"Registration, insurance and inspection tracked with alerts before they expire."},
+    {"icon":"sync","title":"Offline sync centre","body":"Work done with no signal waits safely and syncs when the phone reconnects."},
     {"icon":"tenant","title":"Built for many branches","body":"One platform for every branch, each with its own private data."}
   ];
 
@@ -749,13 +974,17 @@
     shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.4 7.8 8 9 4.6-1.2 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>',
     hitch:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="9" width="8" height="7"/><path d="M9 12h4"/><circle cx="17" cy="12.5" r="4.5"/><path d="M17 8v1M17 16v1M20.5 12.5h-1M14.5 12.5h-1"/></svg>',
     bolt:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>',
-    phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>'
+    phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>',
+    globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg>',
+    link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>'
   };
   var DIFFS = [
     {"icon":"shield","title":"Bank-grade privacy, included","body":"Every company's data is isolated in two independent layers — at no extra cost."},
     {"icon":"hitch","title":"No trailer left untracked","body":"Hitches are logged, so mileage and tyre costs stay accurate — even without an odometer."},
     {"icon":"bolt","title":"Catch breakdowns before they happen","body":"Log a reading and every schedule updates instantly. One click makes it a work order."},
-    {"icon":"phone","title":"Your crew keeps working, signal or not","body":"Works offline on iOS and Android — everything syncs the moment signal returns.","cta":true}
+    {"icon":"phone","title":"Your crew keeps working, signal or not","body":"Works offline on iOS and Android — everything syncs the moment signal returns.","cta":true},
+    {"icon":"globe","title":"Arabic first, Saudi ready","body":"Right-to-left everywhere, Hijri dates, and the documents Saudi fleets must keep current."},
+    {"icon":"link","title":"Sits beside your ERP","body":"Keep your finance system. Ostool runs the yard and shares costs and stock with it."}
   ];
   var diffGrid = document.getElementById('diffGrid');
   DIFFS.forEach(function(d, i){
@@ -841,6 +1070,7 @@
       company: company,
       fleetSize: size,
       message: message,
+      systems: document.getElementById('f-systems').value.trim(),
       botcheck: document.getElementById('f-botcheck').checked ? '1' : '',
       page: location.href
     });
@@ -908,6 +1138,17 @@
     function step(dir){ var rtl=document.documentElement.dir==='rtl'; track.scrollBy({left:(rtl?-dir:dir)*track.clientWidth*.8,behavior:'smooth'}); }
     document.querySelector('.ph-prev').addEventListener('click',function(){ step(-1); });
     document.querySelector('.ph-next').addEventListener('click',function(){ step(1); });
+    var tabs=document.querySelectorAll('.stage-tab'), figs=track.querySelectorAll('figure.phone');
+    function show(g){
+      tabs.forEach(function(t){ t.setAttribute('aria-selected', String(t.dataset.g===g)); });
+      figs.forEach(function(f){ f.hidden = !(g==='all' ? f.dataset.g!=='soon' : f.dataset.g===g); });
+      track.scrollTo({left:0});
+      requestAnimationFrame(fit);
+    }
+    function fit(){ track.parentNode.classList.toggle('no-scroll', track.scrollWidth <= track.clientWidth + 2); }
+    window.addEventListener('resize', fit);
+    tabs.forEach(function(t){ t.addEventListener('click',function(){ show(t.dataset.g); }); });
+    show('all');
   })();
 })();
 </script>
@@ -1126,7 +1367,180 @@
     "@alt:Ostool mobile incident report form":"لقطة من تطبيق أسطول: الإبلاغ عن حادث",
     "@alt:Ostool mobile inventory list with low stock first":"لقطة من تطبيق أسطول: المخزون",
     "@alt:Ostool mobile reports with downtime chart":"لقطة من تطبيق أسطول: التقارير",
-    "@alt:Ostool mobile home screen mirrored in Arabic":"لقطة من تطبيق أسطول: الواجهة بالعربية"
+    "@alt:Ostool mobile home screen mirrored in Arabic":"لقطة من تطبيق أسطول: الواجهة بالعربية",
+    "What's next":"ما الجديد القادم",
+    "Why Ostool":"لماذا أسطول",
+    "Live GPS readings, expiry alerts and WhatsApp approvals are rolling out.":"قراءات GPS مباشرة، وتنبيهات انتهاء الوثائق، وموافقات واتساب.. تصلكم تباعاً.",
+    "See what's coming ▸":"شاهد القادم ◂",
+    "Works beside your ERP · Arabic first · Offline ready":"يعمل بجانب نظامك المحاسبي · عربي أولاً · جاهز بلا إنترنت",
+    "The yard gets smarter every month.":"الورشة أذكى كل شهر.",
+    "Fifteen new capabilities are on the way. Each one removes a job someone still does by hand today.":"خمس عشرة قدرة جديدة في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+    "Coming soon":"قريباً",
+    "Preview":"معاينة",
+    "Live from your trucks’ GPS":"مباشرة من GPS شاحناتك",
+    "Odometer, engine hours and fault codes arrive on their own. Nobody types a reading again.":"العدّاد وساعات المحرك وأكواد الأعطال تصل وحدها. لا أحد يكتب قراءة بعد اليوم.",
+    "For fleet managers":"لمديري الأساطيل",
+    "Service orders that raise themselves":"أوامر صيانة تنشئ نفسها",
+    "Hit the mileage or date and the work order is drafted, with parts suggested.":"عند بلوغ العدّاد أو التاريخ يُجهَّز أمر العمل تلقائياً مع القطع المقترحة.",
+    "For planners":"للمخطّطين",
+    "Never on the road with expired papers":"لا مركبة على الطريق بوثائق منتهية",
+    "Registration, insurance, inspection and operating cards, with Hijri and Gregorian dates and escalating alerts.":"الاستمارة والتأمين والفحص الدوري وبطاقة التشغيل، بالتاريخ الهجري والميلادي وتنبيهات متصاعدة.",
+    "For compliance officers":"لمسؤولي الالتزام",
+    "Approve on WhatsApp":"وافق عبر واتساب",
+    "A work order needs a yes. One tap in WhatsApp, logged and permission-checked.":"أمر عمل ينتظر موافقتك؟ لمسة واحدة في واتساب، مسجّلة ومربوطة بصلاحياتك.",
+    "For managers":"للمديرين",
+    "Driver check before every trip":"فحص السائق قبل كل رحلة",
+    "A short checklist with photos. A failed item becomes an incident before the truck leaves.":"قائمة قصيرة مع صور. أي بند يفشل يصير بلاغاً قبل أن تتحرك الشاحنة.",
+    "For drivers":"للسائقين",
+    "Cost per km, repair or replace":"التكلفة لكل كم: إصلاح أم استبدال",
+    "See which trucks cost too much and when replacing beats repairing.":"اعرف أي الشاحنات تكلّفك أكثر من اللازم ومتى يكون الاستبدال أوفر.",
+    "For owners":"للملّاك",
+    "Downtime and availability":"التوقف والجاهزية",
+    "Hours out of service, why, and what it cost. Targets for each workshop.":"ساعات الخروج من الخدمة وأسبابها وتكلفتها، مع مستهدفات لكل ورشة.",
+    "For operations":"للتشغيل",
+    "Tyre cost and retread planning":"تكلفة الإطارات وتخطيط إعادة التغليف",
+    "Cost per km by brand, rotation advice and a retread pipeline.":"التكلفة لكل كم حسب الماركة، ونصائح التبديل بين المواضع، ومسار إعادة التغليف.",
+    "For tyre managers":"لمسؤولي الإطارات",
+    "Fuel watch":"مراقبة الوقود",
+    "Consumption per truck and driver. Odd fills are flagged within days.":"الاستهلاك لكل شاحنة وسائق. وأي تعبئة غير طبيعية تُكشف خلال أيام.",
+    "Report by photo or voice note":"بلّغ بصورة أو رسالة صوتية",
+    "Snap the damage or speak in Arabic. The app drafts the report, you confirm it.":"صوّر العطل أو تحدّث بالعربية. يجهّز التطبيق البلاغ وأنت تؤكده.",
+    "For technicians":"للفنيين",
+    "Outside workshop quotes":"عروض أسعار الورش الخارجية",
+    "Request quotes, compare them side by side and match the invoice to the approved price.":"اطلب العروض وقارنها جنباً إلى جنب وطابق الفاتورة مع السعر المعتمد.",
+    "For procurement":"للمشتريات",
+    "ZATCA e-invoicing":"الفوترة الإلكترونية (ZATCA)",
+    "Issue a compliant invoice straight from a completed work order.":"أصدر فاتورة متوافقة مباشرة من أمر عمل مكتمل.",
+    "For finance":"للمالية",
+    "A record nobody can quietly edit":"سجلّ لا يستطيع أحد تعديله خفية",
+    "Every approval, stock change and permission change is logged and tamper-evident.":"كل موافقة وتغيير مخزون وتعديل صلاحيات مسجّل ومحمي من العبث.",
+    "For auditors":"للمدقّقين",
+    "Open API and webhooks":"واجهة برمجية مفتوحة وWebhooks",
+    "Send work orders, costs and stock to your ERP or BI tools, and receive data back.":"أرسل أوامر العمل والتكاليف والمخزون إلى نظامك المحاسبي أو أدوات التحليل، واستقبل البيانات منها.",
+    "For IT teams":"لفرق تقنية المعلومات",
+    "Single sign-in and branch access":"دخول موحّد وصلاحيات حسب الفرع",
+    "Your company login, multi-factor, and each user limited to their own branches.":"دخول بحساب شركتك، مع تحقق متعدد، وكل مستخدم محصور في فروعه.",
+    "For security teams":"لفرق الأمن",
+    "Works beside what you already run":"يعمل بجانب ما تستخدمه اليوم",
+    "Keep your ERP. Give your yard a system of its own.":"احتفظ بنظامك المحاسبي، وامنح ورشتك نظامها الخاص.",
+    "Your ERP keeps finance and HR. Ostool runs trucks, tyres, workshops and stock, then shares the numbers both ways.":"نظامك المحاسبي يبقى للمالية والموارد البشرية، وأسطول يدير الشاحنات والإطارات والورش والمخزون ثم يتبادل الأرقام معه في الاتجاهين.",
+    "Your ERP and accounting":"نظامك المحاسبي وERP",
+    "Ledgers, purchasing, payroll":"الحسابات والمشتريات والرواتب",
+    "Reports and BI":"التقارير والتحليل",
+    "Excel, Power BI and scheduled emails":"إكسل وPower BI وبريد مجدول",
+    "Ostool":"أسطول",
+    "The fleet and workshop layer":"طبقة الأسطول والورشة",
+    "GPS and telematics":"GPS وأجهزة التتبع",
+    "Readings and fault codes in":"قراءات وأكواد أعطال تدخل",
+    "WhatsApp":"واتساب",
+    "Alerts and approvals out":"تنبيهات وموافقات تخرج",
+    "ZATCA":"هيئة الزكاة (ZATCA)",
+    "E-invoices from work orders":"فواتير إلكترونية من أوامر العمل",
+    "No rip and replace":"بلا استبدال لنظامك",
+    "Start with the yard. Your finance team keeps the system they know.":"ابدأ من الورشة. وفريق المالية يبقى على النظام الذي يعرفه.",
+    "Costs flow back to your books":"التكاليف تعود إلى دفاترك",
+    "Completed work orders, parts and labour reach your ERP without re-typing.":"أوامر العمل المكتملة والقطع والعمالة تصل نظامك دون إعادة كتابة.",
+    "Open by design":"مفتوح بطبيعته",
+    "A documented API and signed webhooks for anything we do not connect for you.":"واجهة موثّقة وWebhooks موقّعة لكل ما لا نربطه لك مباشرة.",
+    "Mobile screens":"شاشات الجوال",
+    "All screens":"كل الشاشات",
+    "Daily work":"العمل اليومي",
+    "Fleet and stock":"الأسطول والمخزون",
+    "Safety and insight":"السلامة والتحليل",
+    "Pre-trip check":"فحص ما قبل الرحلة",
+    "4 of 5 items done":"4 من 5 بنود",
+    "Brakes and pedal":"الفرامل والدواسة",
+    "Checked":"تم الفحص",
+    "OK":"سليم",
+    "Tyres and wheel nuts":"الإطارات وصواميل العجلات",
+    "Left headlight":"المصباح الأمامي الأيسر",
+    "Photo added":"أُضيفت صورة",
+    "Fail":"معطّل",
+    "Lights and horn":"الأضواء والزمور",
+    "Fluids":"السوائل",
+    "Not checked":"لم يُفحص",
+    "To do":"مطلوب",
+    "Sign and submit":"وقّع وأرسل",
+    "Driver pre-trip check":"فحص السائق قبل الرحلة",
+    "A failed item becomes an incident.":"البند المعطّل يتحوّل إلى بلاغ.",
+    "Documents":"الوثائق",
+    "3 of 4 valid":"3 من 4 سارية",
+    "1 needs action today":"واحدة تحتاج إجراءً اليوم",
+    "Registration":"الاستمارة",
+    "Valid for 212 days":"سارية 212 يوماً",
+    "Valid":"سارية",
+    "Insurance":"التأمين",
+    "Ends in 14 days":"تنتهي بعد 14 يوماً",
+    "14 days":"14 يوماً",
+    "Periodic inspection":"الفحص الدوري",
+    "Expired 3 days ago":"انتهت منذ 3 أيام",
+    "Expired":"منتهية",
+    "Operating card":"بطاقة التشغيل",
+    "Valid for 340 days":"سارية 340 يوماً",
+    "Renew with camera":"جدّد بالكاميرا",
+    "Document expiry":"انتهاء الوثائق",
+    "Alerts before a truck is non-compliant.":"تنبيهات قبل أن تصير الشاحنة مخالفة.",
+    "Ostool alerts":"تنبيهات أسطول",
+    "Work order WO-1042":"أمر العمل WO-1042",
+    "Brake pads · Truck T-218":"تيل فرامل · الشاحنة T-218",
+    "Estimate: 1,240 SAR":"التقدير: 1,240 ر.س",
+    "Approve":"موافقة",
+    "Reject":"رفض",
+    "Approved by Ahmed":"وافق أحمد",
+    "WO-1042 moved to In progress.":"انتقل WO-1042 إلى قيد التنفيذ.",
+    "One-tap approvals":"موافقات بلمسة",
+    "Approve a work order from a message.":"وافق على أمر عمل من رسالة.",
+    "Sync centre":"مركز المزامنة",
+    "3 waiting":"3 بالانتظار",
+    "Everything you did offline is safe.":"كل ما عملته دون إنترنت محفوظ.",
+    "Completed at 09:14":"اكتمل 09:14",
+    "Sending":"جارٍ الإرسال",
+    "Fuel fill T-218":"تعبئة وقود T-218",
+    "Saved at 09:31":"حُفظ 09:31",
+    "Waiting":"بالانتظار",
+    "Incident photo":"صورة بلاغ",
+    "Changed on the server":"تغيّرت على الخادم",
+    "Review":"مراجعة",
+    "Resolve conflict":"حلّ التعارض",
+    "Offline sync centre":"مركز المزامنة دون إنترنت",
+    "See what is waiting. Fix conflicts in two taps.":"اعرف ما ينتظر، وأصلح التعارض بلمستين.",
+    "Arabic added as an afterthought, dates in one calendar only":"عربية مضافة متأخراً، وتواريخ بتقويم واحد فقط",
+    "Tyres, trailers and workshops squeezed into a general asset list":"الإطارات والمقطورات والورش محشورة في قائمة أصول عامة",
+    "Approvals that wait until someone is at a desk":"موافقات تنتظر حتى يجلس أحدهم إلى مكتبه",
+    "True right-to-left Arabic with Hijri and Gregorian dates":"عربية حقيقية من اليمين لليسار بالتاريخين الهجري والميلادي",
+    "Axle maps, tread depth and trailer hitching built in":"خرائط المحاور وعمق النقوش وربط المقطورات مدمجة",
+    "Approve and act from the phone, and from WhatsApp soon":"وافق ونفّذ من الجوال، ومن واتساب قريباً",
+    "Built around how a real yard works, not how software imagines it. It also works beside the systems you already have.":"مبني على طريقة عمل الورشة الحقيقية، لا على تصوّر البرامج. ويعمل أيضاً بجانب الأنظمة التي تستخدمها اليوم.",
+    "Arabic first, Saudi ready":"عربي أولاً وجاهز للسعودية",
+    "Right-to-left everywhere, Hijri dates, and the documents Saudi fleets must keep current.":"من اليمين لليسار في كل مكان، وتواريخ هجرية، والوثائق التي يجب أن تبقى سارية في أساطيل المملكة.",
+    "Sits beside your ERP":"يعمل بجانب نظامك المحاسبي",
+    "Keep your finance system. Ostool runs the yard and shares costs and stock with it.":"احتفظ بنظامك المالي. وأسطول يدير الورشة ويشاركه التكاليف والمخزون.",
+    "new capabilities rolling out":"قدرة جديدة تصلكم تباعاً",
+    "Systems you use today (optional)":"الأنظمة التي تستخدمها اليوم (اختياري)",
+    "@placeholder:e.g. our ERP, GPS provider, spreadsheets":"مثال: نظامنا المحاسبي، مزوّد GPS، جداول إكسل",
+        "New":"جديد",
+    "Saudi document compliance and an offline sync centre are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت متاحان الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+    "See what's next ▸":"شاهد القادم ◂",
+    "Fourteen more capabilities are on the way. Each one removes a job someone still does by hand today.":"أربع عشرة قدرة إضافية في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+    "more capabilities rolling out":"قدرة إضافية تصلكم تباعاً",
+    "Compliance and documents":"الالتزام والوثائق",
+    "Registration, insurance and inspection tracked with alerts before they expire.":"الاستمارة والتأمين والفحص تُتابَع مع تنبيهات قبل انتهائها.",
+    "Work done with no signal waits safely and syncs when the phone reconnects.":"ما يُنجز دون إشارة ينتظر بأمان ويُزامَن عند عودة الاتصال.",
+        "Eleven more capabilities are on the way. Each one removes a job someone still does by hand today.":"ثلاث عشرة قدرة إضافية في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+    "Saudi document compliance, an offline sync centre, a tamper-evident audit trail and downtime tracking are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت وسجل التدقيق المحمي من العبث متاحة الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+        "Twelve more capabilities are on the way. Each one removes a job someone still does by hand today.":"اثنتا عشرة قدرة إضافية في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+    "Saudi document compliance, an offline sync centre, a tamper-evident audit trail and downtime tracking are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت وسجل التدقيق المحمي من العبث وتتبّع التوقف متاحة الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+        "Saudi document compliance, an offline sync centre, a tamper-evident audit trail, downtime tracking and tyre lifecycle intelligence are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت وسجل التدقيق المحمي من العبث وتتبّع التوقف وذكاء عمر الإطارات متاحة الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+        "Ten more capabilities are on the way. Each one removes a job someone still does by hand today.":"عشر قدرات إضافية في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+        "Saudi document compliance, an offline sync centre, a tamper-evident audit trail, downtime tracking, tyre lifecycle intelligence and driver pre-trip checks are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت وسجل التدقيق المحمي من العبث وتتبّع التوقف وذكاء عمر الإطارات وفحص السائق قبل الرحلة متاحة الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+        "Eight more capabilities are on the way. Each one removes a job someone still does by hand today.":"ثماني قدرات إضافية في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+        "Saudi document compliance, an offline sync centre, a tamper-evident audit trail, downtime tracking, tyre lifecycle intelligence, driver pre-trip checks, automatic service orders and cost per km with repair-or-replace advice are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت وسجل التدقيق المحمي من العبث وتتبّع التوقف وذكاء عمر الإطارات وفحص السائق قبل الرحلة وأوامر الخدمة التلقائية والتكلفة لكل كم مع نصيحة الإصلاح أم الاستبدال متاحة الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+        "Nine more capabilities are on the way. Each one removes a job someone still does by hand today.":"تسع قدرات إضافية في الطريق. كل واحدة منها تُنهي عملاً ما زال يُنجز باليد اليوم.",
+        "Saudi document compliance, an offline sync centre, a tamper-evident audit trail, downtime tracking, tyre lifecycle intelligence, driver pre-trip checks and automatic service orders are live. GPS and WhatsApp approvals are next.":"الالتزام بالوثائق السعودية ومركز المزامنة دون إنترنت وسجل التدقيق المحمي من العبث وتتبّع التوقف وذكاء عمر الإطارات وفحص السائق قبل الرحلة وأوامر الخدمة التلقائية متاحة الآن. وتتبّع GPS وموافقات واتساب هما التاليان.",
+    "What’s coming next":"ما الذي يأتي بعد",
+    "GPS readings, expiry alerts, WhatsApp approvals and more are rolling out now.":"قراءات GPS وتنبيهات انتهاء الوثائق وموافقات واتساب وغيرها تصلكم تباعاً الآن.",
+    "Works beside your ERP":"يعمل بجانب نظامك المحاسبي",
+    "Keep your ERP for finance. Ostool runs the yard and shares the numbers.":"احتفظ بنظامك للمالية. وأسطول يدير الورشة ويشارك الأرقام."
   };
 
   var KEY = 'ostoolLang', ATTRS = ['placeholder','alt','aria-label'];
@@ -1298,8 +1712,10 @@
   var STEPS = [
     {"sel":"#heroMock","title":"Hi, I’m Oz 👋","text":"This is your whole fleet at a glance: running, in the garage, or down."},
     {"sel":"#featureGrid","title":"Everything in one place","text":"Receiving, maintenance, tyres, stock, people — one login."},
+    {"sel":"#capGrid","title":"What’s coming next","text":"GPS readings, expiry alerts, WhatsApp approvals and more are rolling out now."},
     {"sel":"#receiving .receiving-mock","title":"The gate becomes a checkpoint","text":"Every truck logged by plate, driver and odometer. No more paper."},
     {"sel":"#notifications .notif-mock","title":"Problems flagged early","text":"Overdue service, worn tyres, expiring papers — you hear first."},
+    {"sel":"#integrate .flow","title":"Works beside your ERP","text":"Keep your ERP for finance. Ostool runs the yard and shares the numbers."},
     {"sel":"#mobile .phones","title":"Ostool in your pocket","text":"Receive trucks and fix issues right from the gate."},
     {"sel":"#difference .compare","title":"Built for a real yard","text":"Trailer mileage, private data and offline apps — all included."},
     {"sel":"#leadForm","title":"Want to see it with your fleet?","text":"Leave your details — we’ll run a live demo with your own trucks.","last":true}
